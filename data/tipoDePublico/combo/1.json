@@ -1,0 +1,11 @@
+{
+    "content":[
+        {
+            "id": 1,
+            "descricao": "Prospect"
+        },{
+            "id": 2,
+            "descricao": "Cliente"
+        }
+    ]
+}

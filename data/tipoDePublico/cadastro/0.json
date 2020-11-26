@@ -1,0 +1,35 @@
+{
+    "content":[
+        {
+            "id": 1,
+            "descricao": "Prospect",
+            "selected": false,
+            "disabled": false
+        },{
+            "id": 2,
+            "descricao": "Cliente",
+            "selected": false,
+            "disabled": false
+        },{
+            "id": 3,
+            "descricao": "Segurado",
+            "selected": false,
+            "disabled": false
+        },{
+            "id": 4,
+            "descricao": "Terceiro",
+            "selected": false,
+            "disabled": true
+        },{
+            "id": 5,
+            "descricao": "Titular",
+            "selected": false,
+            "disabled": true
+        },{
+            "id": 6,
+            "descricao": "Dependente",
+            "selected": false,
+            "disabled": false
+        }
+    ]
+}

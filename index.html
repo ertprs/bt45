@@ -1,0 +1,1915 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+
+  <title>Atendimento</title>
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/img/favicons/favicon.png" />
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/fontawesome/css/all.css" rel="stylesheet" />
+  
+  <!-- Jquery Components CSS -->
+  <link href="assets/filepond/dist/filepond.css" rel="stylesheet" />
+  <link href="assets/filepond/dist/plugins/filepond-plugin-image-preview/filepond-plugin-image-preview.css" rel="stylesheet" />
+  <link href="assets/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" />
+  <link href="assets/jquery-confirm/dist/jquery-confirm.min.css" rel="stylesheet" />
+  <link href="assets/Dual-Listbox-Transfer/icon_font/css/icon_font.css" rel="stylesheet" type="text/css" />
+  <link href="assets/Dual-Listbox-Transfer/css/jquery.transfer.css?v=0.0.3" rel="stylesheet" />
+  <link href="assets/simplePagination.js/simplePagination.css" rel="stylesheet" />
+
+  <!-- Some Google Fonts CSS -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="assets/css/card.css" rel="stylesheet" />
+  <link href="assets/css/app.css" rel="stylesheet" />
+
+</head>
+
+<body style="background-color: rgb(238, 240, 248)">
+
+  <!-- offcanvas panel -->
+  <aside class="offcanvas scroll1 no-print" id="asideMenu">
+    <nav class="list-group list-group-flush">
+      <header class="bg-dark border-bottom" style="padding: 8px">
+        <i class="fas fa-window-close btn-close mt-2 text-white"></i>
+        <div class="mb-0 text-white">
+          <img src="assets/img/logos/6009d034-logo-mag-brc.svg" height="36" />
+        </div>
+      </header>
+
+      <div style="width: 341px; margin: 10px;">
+        <button id="btnIdentificacao" type="button" class="btn btn-secondary mr-2 btn-icon" data-toggle="tooltip" data-placement="bottom" title="Identificação">
+          <svg 
+            width="1em" 
+            height="1em" 
+            viewBox="0 0 16 16" 
+            class="bi bi-person-check-fill" 
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path 
+              fill-rule="evenodd"
+              d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+          </svg>
+        </button>
+        <button type="button" class="btn btn-secondary mr-2 btn-icon" data-toggle="tooltip" data-placement="bottom" title="Ativo">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-outbound-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              fill-rule="evenodd"
+              d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z" />
+          </svg>
+        </button>
+        <button type="button" class="btn btn-secondary mr-2 btn-icon" data-toggle="tooltip" data-placement="bottom" title="Mesa">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-inbox" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              fill-rule="evenodd"
+              d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4H4.98zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438L14.933 9zM3.809 3.563A1.5 1.5 0 0 1 4.981 3h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374l3.7-4.625z" />
+          </svg>
+        </button>
+        <button type="button" class="btn btn-warning mr-2 btn-icon" data-toggle="tooltip" data-placement="bottom" title="Não Identificada">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              fill-rule="evenodd"
+              d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z" />
+          </svg>
+        </button>
+        
+        <button id="btnCancelarAtendimento" type="button" class="btn btn-danger mr-2 btn-icon" data-toggle="tooltip" data-placement="bottom" title="Cancelar Atendimento">
+          <i class="fas fa-ban"></i>
+        </button>
+        <button id="btnConcluirAtendimento" type="button" class="btn btn-primary btn-icon" data-toggle="tooltip"
+          data-placement="bottom" title="Concluir Atendimento">
+          <i class="fas fa-save"></i>
+        </button>
+      </div>
+
+      <header class="bg-dark border-bottom" style="padding: 8px">
+        <h6 class="mb-0 text-white">Cadastros</h6>
+      </header>
+
+      <h6 class="dropdown-header">Dados pessoais</h6>
+      <a class="dropdown-item" href="#" onclick="appModule.getModal({size:'Xl', app:'/modules/pessoa/cadastro/pessoaTipoDePublico.html', title:'Cadastro Tipo De Público', callBack: appModule.carregaCadastroTipoDePublico})">Tipo de público</a>
+      <a class="dropdown-item" href="#">Importação de Clientes</a>
+      <div class="dropdown-divider"></div>
+      <h6 class="dropdown-header">Manifestação</h6>
+      <a class="dropdown-item" href="#">Composição da manifestação</a>
+      <a class="dropdown-item" href="#">Classificação</a>
+      <a class="dropdown-item" href="#">Status da manifestação</a>
+      <div class="dropdown-divider"></div>
+      <h6 class="dropdown-header">FollowUp</h6>
+      <a class="dropdown-item" href="#">Eventos x Equipes/Responsável</a>
+      <div class="dropdown-divider"></div>
+      <h6 class="dropdown-header">Conclusão</h6>
+      <a class="dropdown-item" href="#">Grau de satisfação</a>
+      <a class="dropdown-item" href="#">Resultado da manifestação</a>
+
+      <header class="bg-dark border-bottom" style="padding: 8px">
+        <h6 class="mb-0 text-white">Especs</h6>
+      </header>
+      <h6 class="dropdown-header">Solicitação de reembolso</h6>
+      <a class="dropdown-item" href="#">Status</a>
+    </nav>
+  </aside>
+  <!-- offcanvas panel .end -->
+
+  <nav id="navHeader" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <img src="assets/img/logos/6009d034-logo-mag-brc.svg" height="36" style="margin-right: 130px;" />
+    <button id="btnOpenLftMnu" class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <button id="btnOpenLftMnu" type="button" class="btn btn-outline-light mr-2 btn-icon" data-toggle="tooltip" data-placement="bottom" title="Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button id="btnIdentificacao" type="button" class="btn btn-outline-light mr-2 btn-icon" data-toggle="tooltip" data-placement="bottom" title="Identificação">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+            </svg>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-light mr-2 btn-icon" data-toggle="tooltip"
+            data-placement="bottom" title="Ativo">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-outbound-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z" />
+            </svg>
+          </button>
+        </li>
+
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-light mr-2 btn-icon" data-toggle="tooltip" data-placement="bottom"
+            title="Mesa">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-inbox" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4H4.98zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438L14.933 9zM3.809 3.563A1.5 1.5 0 0 1 4.981 3h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374l3.7-4.625z" />
+            </svg>
+          </button>
+        </li>
+
+        <li class="nav-item">
+          <button type="button" class="btn btn-warning mr-2 btn-icon" data-toggle="tooltip"
+            data-placement="bottom" title="Não Identificada">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor"
+              xmlns="http://www.w3.org/200  0/svg">
+              <path fill-rule="evenodd"
+                d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+        </li>
+        
+        <li class="nav-item">
+          <button id="btnCancelarAtendimento" type="button" class="btn btn-danger mr-2 btn-icon" data-toggle="tooltip" data-placement="bottom" title="Cancelar Atendimento">
+            <i class="fas fa-ban"></i>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button id="btnConcluirAtendimento" type="button" class="btn btn-dark btn-icon" data-toggle="tooltip"
+            data-placement="bottom" title="Concluir Atendimento">
+            <i class="fas fa-save"></i>
+          </button>
+        </li>
+      </ul>
+      <a class="navbar-brand" href="#"><span class="logo">SDVS <span class="text-warning">Atendimento</span></span></a>      
+    </div>
+  </nav>
+
+  <main class="no-print">
+    <div class="container-fluid">
+      <div id="protocoloInfo" class="text-info protocolo-info">0057112020102200281</div>
+      <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="pessoa-tab" data-toggle="tab" href="#pessoa" role="tab" aria-controls="pessoa" aria-selected="true">Pessoa</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Manifestação</a>
+        </li>
+      </ul>
+      <div class="tab-content mb-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="pessoa" role="tabpanel" aria-labelledby="pessoa-tab">
+          <div id="navbar-pessoa" class="navbar navbar-light bg-write"
+            style="padding: .5em 1em .5em 0em; display: flex; width: calc(100vw - 145px) !important;">
+            <div>
+              <button class="btn btn-sm btn-light btn-scroll" onclick="appModule.navbarScrollLeft('#pessoalNavbarScroll')">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            <div class="nav-scroll" style="width: calc(100vw - 220px) !important;">
+              <div id="pessoalNavbarScroll" data-position="0" class="nav nav-scroll-filter" style="left:0px">
+                <div class="nav-item nav-scroll-item">
+                  <a class="nav-link" href="#lnkNaoContactarPor">Não contactar por</a>
+                </div>
+                <div class="nav-item nav-scroll-item">
+                  <a class="nav-link" href="#lnkDadosPessoais">Dados pessoais</a>
+                </div>
+                <div class="nav-item nav-scroll-item">
+                  <a class="nav-link" href="#lnkComplementares">Dados complementares</a>
+                </div>
+                <div class="nav-item nav-scroll-item">
+                  <a class="nav-link" href="#lnkEndereco">Endereço</a>
+                </div>
+                <div class="nav-item nav-scroll-item">
+                  <a class="nav-link" href="#lnkEspecSolicitacoesReembolso">Espec - Solicitações de reembolso</a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-light btn-scroll" onclick="appModule.navbarScrollRight('#pessoalNavbarScroll')">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+          <div id="pessoaControlBar">
+            <button type="button" class="btn btn-danger mr-1" data-toggle="tooltip" data-placement="bottom" title="Cancelar">
+              <i class="fas fa-ban"></i>
+            </button>
+            <button id="btnGravarPessoa" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Gravar Pessoa">
+              <i class="fas fa-save"></i>
+            </button>
+          </div>
+
+          <div id="wrapperPessoa" data-spy="scroll" data-target="#pessoalNavbarScroll" data-offset="0" class="wrapper scroll1">
+            <form id="frmPessoa" method="POST" action="return false">
+              <a id="lnkNaoContactarPor"></a>
+              <div class="row mt-2">
+                <div class="col-lg-12 col-xl-12">
+                  <div class="card mg-b-10">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="mg-b-0">Não contactar por</h5>
+                    </div>
+                    <!-- card-header -->
+                    <div class="card-body pd-b-0">
+                      <div id="naoContactarPor">
+                        <div class="row">
+                          <div class="col-sm-6 col-lg-2 col-xl-2 mg-b-20">
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="frmPessoaNaoContactarPorTelefone" data-bind="pessoa.naoContactar" value="TELEFONE" />
+                              <label class="custom-control-label" for="frmPessoaNaoContactarPorTelefone">Telefone</label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-2 col-xl-2 mg-b-20">
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="frmPessoaNaoContactarPorCorreio" data-bind="pessoa.naoContactar" value="CORREIO" />
+                              <label class="custom-control-label" for="frmPessoaNaoContactarPorCorreio">Correio</label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-2 col-xl-2 mg-b-20">
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="frmPessoaNaoContactarPorSms" data-bind="pessoa.naoContactar" value="SMS" />
+                              <label class="custom-control-label" for="frmPessoaNaoContactarPorSms">SMS</label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-2 col-xl-2 mg-b-20">
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="frmPessoaNaoContactarPorEmail" data-bind="pessoa.naoContactar" value="EMAIL" />
+                              <label class="custom-control-label" for="frmPessoaNaoContactarPorEmail">E-mail</label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-2 col-xl-2 mg-b-20">
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="frmPessoaNaoContactarPorWhatsApp" data-bind="pessoa.naoContactar" value="WHATSAPP" />
+                              <label class="custom-control-label" for="frmPessoaNaoContactarPorWhatsApp">WhatsApp</label>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- row -->
+                      </div>
+                    </div>
+                    <!-- card-body -->
+                  </div>
+                </div>
+              </div>
+
+              <a id="lnkDadosPessoais"></a>
+              <div class="row mt-2">
+                <div class="col-lg-12 col-xl-12 mt-2">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="mg-b-0">Dados Pessoais</h5>
+                    </div>
+                    <!-- card-header -->
+                    <div class="card-body pd-b-0">
+                      <div id="dadosPessoais">
+                        <div class="row no-gutters">
+                          <div class="col-lg-3">
+                            <label for="frmPessoaTipoDePlublico">Tipo de público</label>
+                            <select id="frmPessoaTipoDePlublico" data-bind="pessoa.tipoDePublico" class="form-control"></select>
+                          </div>
+                          <div class="col-lg-3">
+                            <label for="frmPessoaTratamento">Tratamento</label>
+                            <select id="frmPessoaTratamento" data-bind="pessoa.tratamento" class="form-control"></select>
+                          </div>
+                          <div class="col-lg-6">
+                            <label for="frmPessoaNomeRazaoSocial">Nome/Razão social</label>
+                            <input id="frmPessoaNomeRazaoSocial" data-bind="pessoa.nomeRazaoSocial" type="text" class="form-control" />
+                          </div>
+                        </div>
+                        <div class="row no-gutters">
+                          <div class="col-lg-3">
+                            <label for="frmPessoaCodigoCorporativo">Código corporativo</label>
+                            <input id="frmPessoaCodigoCorporativo" data-bind="pessoa.codigoCorporativo" type="text" class="form-control" />
+                          </div>
+                          <div class="col-lg-3">
+                            <label for="frmPessoaTipoDePessoa">Tipo de Pessoa</label>
+                            <select id="frmPessoaTipoDePessoa" data-bind="pessoa.pessoaFisicaJuridica" class="form-control">
+                              <option value="">Selecione</option>
+                              <option value="F">Física</option>
+                              <option value="J">Jurídica</option>
+                            </select>
+                          </div>
+                          <div class="col-lg-3">
+                            <label for="frmPessoaGenero">Gênero</label>
+                            <select id="frmPessoaGenero" data-bind="pessoa.genero" class="form-control">
+                              <option value="">Selecione</option>
+                              <option value="M">Masculino</option>
+                              <option value="F">Feminino</option>
+                              <option value="N/A">Não Informado</option>
+                            </select>
+                          </div>
+                          <div class="col-lg-3">
+                            <label for="frmPessoaEstadoCivil">Estado civil</label>
+                            <select id="frmPessoaEstadoCivil" data-bind="pessoa.estadoCivil" class="form-control"></select>
+                          </div>
+                        </div>
+                        <div class="row no-gutters">
+                          <div class="col-lg-3">
+                            <label for="frmPessoaTelefoneCelular">Telefone celular</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text text-success" id="basic-addon1">
+                                  <i class="fab fa-whatsapp"></i>
+                                </span>
+                              </div>
+                              <input id="frmPessoaTelefoneCelular" data-bind="pessoa.telefoneCelular" type="text" class="form-control" aria-describedby="basic-addon1">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                  <input type="checkbox" id="frmPessoaIsWhatsApp" value="S" aria-label="Checkbox for following text input" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3">
+                            <label for="frmPessoaTelefoneComercial">Telefone comercial</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">
+                                  <i class="fas fa-headset"></i>
+                                </span>
+                              </div>
+                              <input id="frmPessoaTelefoneComercial" data-bind="pessoa.telefoneComercial" type="text" class="form-control" aria-describedby="basic-addon2">
+                            </div>
+                          </div>
+                          <div class="col-lg-3">
+                            <label for="frmPessoaEmailPrincipal">E-mail principal</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                  <i class="fas fa-at"></i>
+                                </span>
+                              </div>
+                              <input id="frmPessoaEmailPrincipal" data-bind="pessoa.emailPrincipal" type="text" class="form-control" aria-describedby="basic-addon1">
+                            </div>
+                          </div>
+                          <div class="col-lg-3">
+                            <label for="frmPessoaEmailAlternativo">E-mail alternativo</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                  <i class="fas fa-at"></i>
+                                </span>
+                              </div>
+                              <input id="frmPessoaEmailAlternativo" data-bind="pessoa.emailAlternativo" type="text" class="form-control" aria-describedby="basic-addon1">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a id="lnkComplementares"></a>
+              <div class="row">
+                <div class="col-lg-12 col-xl-12 mt-3">
+                  <div class="card mg-b-10">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="mg-b-0">Dados Complementares</h5>
+                    </div>
+                    <div class="card-body pd-b-0">
+                      <div id="dadosComplementares" style="margin-bottom: 10px;">
+                        <div class="row no-gutters">
+                          <div class="col-lg-4">
+                            <label for="frmPessoaRgIe">RG/IE</label>
+                            <input id="frmPessoaRgIe" data-bind="pessoa.rgIe" type="text" class="form-control" />
+                          </div>
+                          <div class="col-lg-4">
+                            <label for="frmPessoaCpfCnpf">CPF/CNPJ</label>
+                            <input id="frmPessoaCpfCnpf" data-bind="pessoa.cpfCnpf" type="text" class="form-control" />
+                          </div>
+                          <div class="col-lg-4">
+                            <label for="frmPessoaPassaporte">Passaporte</label>
+                            <input id="frmPessoaPassaporte" data-bind="pessoa.passaporte" type="text" class="form-control" />
+                          </div>
+                        </div>
+                        <div class="row no-gutters">
+                          <div class="col-lg-4">
+                            <label for="frmPessoaDataDeNascimento">Data de nascimento</label>
+                            <input id="frmPessoaDataDeNascimento" data-bind="pessoa.dataDeNascimento" type="date" class="form-control" />
+                          </div>
+                          <div class="col-lg-4">
+                            <label for="frmPessoaProfissao">Profissão</label>
+                            <input id="frmPessoaProfissao" data-bind="pessoa.profissao" type="text" class="form-control" />
+                          </div>
+                          <div class="col-lg-4">
+                            <label for="frmPessoaCargo">Cargo</label>
+                            <input id="frmPessoaCargo" data-bind="pessoa.cargo" type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            
+            <a id="lnkEndereco"></a>
+            <div class="row">
+              <div class="col-lg-12 col-xl-12 mt-3">
+                <div class="card mg-b-10">
+                  <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="mg-b-0">Endereços</h5>
+                    <nav class="nav nav-icon-only">
+                      <a id="btnEnderecos" href="#" class="ml-3" data-toggle="tooltip" data-placement="bottom" title="Rest. Tamanho">
+                        <i class="fas fa-window-restore"></i>
+                      </a>
+                    </nav>
+                  </div>
+                  <div class="card-body pd-b-0">
+                    <div id="frmEndereco" style="display: none;">
+                      <form id="frmPessoaEndereco" method="POST" action="return false">
+                        <div class="row no-gutters">
+                          <div class="col-lg-5">
+                            <label for="frmPessoaTipoEndereco">Tipo de Endererço</label>
+                            <select id="frmPessoaTipoEndereco" data-bind="tipoEndereco" class="form-control">
+                              <option value="">Selecione</option>
+                              <option value="COMERCIAL">Comercial</option>
+                              <option value="RESIDENCIAL">Residencial</option>
+                              <option value="OUTROS">Outros</option>
+                            </select>
+                          </div>
+                          <div class="col-lg-2">
+                            <div class="custom-control custom-switch mt-custom-switch">
+                              <input type="checkbox" class="custom-control-input" data-bind="principal" id="frmPessoaEnderecoPrincipal" value="S" />
+                              <label class="custom-control-label" for="frmPessoaEnderecoPrincipal">Principal</label>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <label for="frmPessoaCepLogradouro">CEP/Logradouro</label>
+                            <input id="frmPessoaCepLogradouro" type="text" class="form-control" style="border-top: 2px solid #17a2b8;" />
+                          </div>
+                          <div class="col-auto" style="margin-top: 23px;">
+                            <button id="btnCepLogradouro" class="btn btn-info btn-icon" type="button" data-toggle="tooltip" data-placement="bottom" title="Pesquisar CEP">
+                              <i class="fas fa-search"></i>
+                            </button>
+                          </div>
+                        </div>
+
+                        <div class="row no-gutters">
+                          <div class="col-lg-5">
+                            <label for="frmPessoaLogradouro">Logradouro</label>
+                            <input id="frmPessoaLogradouro" data-bind="logradouro" type="text" class="form-control" />
+                          </div>
+                          <div class="col-lg-2">
+                            <label>Nº</label>
+                            <input id="frmPessoaNumero" data-bind="numero" type="text" class="form-control" />
+                          </div>
+                          <div class="col-lg-5">
+                            <label>Complemento/Referência</label>
+                            <input id="frmPessoaComplemento" data-bind="complemento" type="text" class="form-control" />
+                          </div>
+                        </div>
+
+                        <div class="row mb-2 no-gutters">
+                          <div class="col-lg-3">
+                            <label>Bairro/Distrito</label>
+                            <input id="frmPessoaBairroDistrito" data-bind="bairro" type="text" class="form-control" />
+                          </div>
+                          <div class="col-lg-4">
+                            <label>Localidade</label>
+                            <input id="frmPessoaLocalidade" data-bind="localidade" type="text" class="form-control" />
+                          </div>
+                          <div class="col-lg-2">
+                            <label>CEP</label>
+                            <input id="frmPessoaCep" data-bind="cep" type="text" class="form-control" />
+                          </div>
+                          <div class="col">
+                            <label>Estado</label>
+                            <select id="frmPessoaEstado" data-bind="uf" class="form-control"></select>
+                          </div>
+                          <div class="col-auto" style="margin-top: 23px;">
+                            <button id="frmPessoaEnderecoBtnNovo" class="btn btn-light mr-1 btn-icon" style="border-color: #dee2e6;" type="button" data-toggle="tooltip" data-placement="bottom" title="Novo">
+                              <i class="fas fa-file"></i>
+                            </button>
+                            <button id="frmPessoaEnderecoBtnAplicar" type="button" class="btn btn-primary btn-icon" data-toggle="tooltip" data-placement="bottom" title="Aplicar Endereço">
+                              <i class="fas fa-file-download"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="table-responsive scroll1">
+                      <div class="row no-gutters">
+                        <div class="col-lg-12">
+                          <table id="tblEndereco" table-bind="pessoa.endereco" class="table table-sm bg-white">
+                            <thead>
+                              <tr data-key="cep">
+                                <th class="wd-10p text-left" td-bind="tipoEndereco">Tipo
+                                  <a href="#" class="badge badge-light">
+                                    <i class="fas fa-sort"></i>
+                                  </a>
+                                </th>
+                                <th class="wd-30p text-left" td-bind="logradouro">Logradouro/Nº
+                                  <a href="#" class="badge badge-light">
+                                    <i class="fas fa-sort-down"></i>
+                                  </a>
+                                </th>
+                                <th class="wd-25p text-left" td-bind="bairro">Bairro/Distrito
+                                  <a href="#" class="badge badge-light">
+                                    <i class="fas fa-sort"></i>
+                                  </a>
+                                </th>
+                                <th class="wd-25p text-left" td-bind="localidade">Localidade/Estado
+                                  <a href="#" class="badge badge-light">
+                                    <i class="fas fa-sort"></i>
+                                  </a>
+                                </th>
+                                <th class="wd-10p" ico-bind="EDIT.TRASH">&nbsp;</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td colspan="5" class="text-center pt-5 pb-5">Nenhum registro encontrado!</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <nav aria-label="Page navigation">
+                            <ul id="pajEndereco" class="pagination pagination-sm">
+                              <li class="page-item active" aria-current="page">
+                                <span class="page-link">1<span class="sr-only">(current)</span></span>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>           
+            
+            <form id="frmSolicitacaoDeReembolso" method="POST" action="return false"></form>
+              <a id="lnkEspecSolicitacoesReembolso"></a>
+              <div class="row">
+                <div class="col-lg-12 col-xl-12 mt-3">
+                  <div class="card mg-b-10">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="mg-b-0">Espec - Solicitação de Reembolso</h5>
+                      <a id="btnEspecSolicitacaoDeReembolso" href="#" class="ml-3" data-toggle="tooltip"
+                        data-placement="bottom" title="Rest. Tamanho">
+                        <i class="fas fa-window-restore"></i>
+                      </a>
+                    </div>
+                    <!-- /card-header -->
+                    <div class="card-body pd-b-0">
+                      <div id="frmEspecSolicitacaoDeReembolso" style="display: none;">
+                        <div class="row mb-2 no-gutters">
+                          <div class="col-lg-7" style="padding-left: 0px !important;">
+                            <div class="row no-gutters">
+                              <div class="col-lg-4">
+                                <label>Tipo de Solicitação</label>
+                                <select class="form-control"></select>
+                              </div>
+                              <div class="col-lg-4">
+                                <label>Nº. Sinistro</label>
+                                <input type="text" class="form-control" />
+                              </div>
+                              <div class="col-lg-4">
+                                <label>Data</label>
+                                <input type="date" class="form-control" />
+                              </div>
+                            </div>
+                            <div class="row no-gutters">
+                              <div class="col-lg-4">
+                                <label>Solicitado (R$)</label>
+                                <input type="text" class="form-control real" />
+                              </div>
+                              <div class="col-lg-4">
+                                <label>Aprovado (R$)</label>
+                                <input type="text" class="form-control real" />
+                              </div>
+                              <div class="col-lg-4">
+                                <label>Status</label>
+                                <select class="form-control"></select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <label>Motivo</label>
+                            <textarea class="form-control" style="height: 101px;" disabled></textarea>
+                          </div>
+                          <div class="col-auto" style="padding-top: 85px;">
+                            <button class="btn btn-light mr-1 btn-icon" style="border-color: #dee2e6;" type="button"
+                              data-toggle="tooltip" data-placement="bottom" title="Novo">
+                              <i class="fas fa-file"></i>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-icon" data-toggle="tooltip"
+                              data-placement="bottom" title="Adicionar Tipo de Solicitação">
+                              <i class="fas fa-file-download"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="table-responsive scroll1">
+                        <div class="row no-gutters">
+                          <div class="col-lg-12 col-xl-12">
+                            <table class="table table-sm mg-b-0">
+                              <thead>
+                                <tr>
+                                  <th class="wd-10p text-left">Tipo
+                                    <a href="#" class="badge badge-light">
+                                      <i class="fas fa-sort-down"></i>
+                                    </a>
+                                  </th>
+                                  <th class="wd-10p text-right">Sinistro
+                                    <a href="#" class="badge badge-light">
+                                      <i class="fas fa-sort"></i>
+                                    </a>
+                                  </th>
+                                  <th class="wd-10p text-left">Data
+                                    <a href="#" class="badge badge-light">
+                                      <i class="fas fa-sort"></i>
+                                    </a>
+                                  </th>
+                                  <th class="wd-10p text-left">Solicitado (R$)
+                                    <a href="#" class="badge badge-light">
+                                      <i class="fas fa-sort"></i>
+                                    </a>
+                                  </th>
+                                  <th class="wd-10p text-left">Aprovado (R$)
+                                    <a href="#" class="badge badge-light">
+                                      <i class="fas fa-sort"></i>
+                                    </a>
+                                  </th>
+                                  <th class="wd-10p text-left">Status
+                                    <a href="#" class="badge badge-light">
+                                      <i class="fas fa-sort"></i>
+                                    </a>
+                                  </th>
+                                  <th class="wd-30p text-left">Motivo
+                                    <a href="#" class="badge badge-light">
+                                      <i class="fas fa-sort"></i>
+                                    </a>
+                                  </th>
+                                  <th class="wd-10p">&nbsp;</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Solicitação</td>
+                                  <td class="text-right">123456789</td>
+                                  <td class="text-left">10/01/2020</td>
+                                  <td class="text-left">R$ 400,00</td>
+                                  <td class="text-left">R$ 0,00</td>
+                                  <td class="text-left">Reprovada</td>
+                                  <td class="text-left">
+                                    <div class="truncate200"
+                                      title="Solicitação, Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic">
+                                      Solicitação, Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
+                                      laying out print, graphic
+                                    </div>
+                                  </td>
+                                  <td class="text-right">
+                                    <a href="#" class="ml-1 mr-3">
+                                      <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="#" class="mr-1">
+                                      <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Solicitação</td>
+                                  <td class="text-right">123456789</td>
+                                  <td class="text-left">10/01/2020</td>
+                                  <td class="text-left">R$ 400,00</td>
+                                  <td class="text-left">R$ 350,00</td>
+                                  <td class="text-left">Aprovada</td>
+                                  <td class="text-left"></td>
+                                  <td class="text-right">
+                                    <a href="#" class="ml-1 mr-3">
+                                      <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="#" class="mr-1">
+                                      <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Solicitação</td>
+                                  <td class="text-right">123456789</td>
+                                  <td class="text-left">10/01/2020</td>
+                                  <td class="text-left">R$ 400,00</td>
+                                  <td class="text-left">R$ 350,00</td>
+                                  <td class="text-left">Aprovada</td>
+                                  <td class="text-left"></td>
+                                  <td class="text-right">
+                                    <a href="#" class="ml-1 mr-3">
+                                      <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="#" class="mr-1">
+                                      <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <nav aria-label="Page navigation">
+                              <ul class="pagination pagination-sm">
+                                <li class="page-item active" aria-current="page">
+                                  <span class="page-link">
+                                    1
+                                    <span class="sr-only">(current)</span>
+                                  </span>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              </ul>
+                            </nav>
+                          </div>
+                          <!-- table-responsive -->
+                        </div>
+                        <!-- col-lg-12 -->
+                      </div>
+                    </div>
+                    <!-- card-body -->
+                  </div>
+                  <!-- card -->
+                </div>
+              </div> 
+            </form>                      
+          </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div id="navbar-manif" class="navbar navbar-light bg-write"
+            style="padding: .5em 1em .5em 0em; display: flex; width: calc(100vw - 145px) !important;">
+            <div>
+              <button class="btn btn-sm btn-light btn-scroll"
+                onclick="appModule.navbarScrollLeft('#manifNavbarScroll')">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+            <div class="nav-scroll" style="width: calc(100vw - 220px) !important;">
+              <div id="manifNavbarScroll" data-position="0" class="nav nav-scroll-filter" style="left:0px">
+                <div class="nav-item nav-scroll-item">
+                  <a class="nav-link" href="#lnkManif">Manifestação</a>
+                </div>
+                <div class="nav-item nav-scroll-item">
+                  <a class="nav-link" href="#lnkFollowUp">FollowUp</a>
+                </div>
+                <div class="nav-item nav-scroll-item">
+                  <a class="nav-link" href="#lnkConclusao">Conclusão</a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-light btn-scroll"
+                onclick="appModule.navbarScrollRight('#manifNavbarScroll')">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+          <div id="manifControlBar">
+            <button type="button" class="btn btn-danger mr-1 btn-icon" data-toggle="tooltip" data-placement="bottom"
+              title="Cancelar">
+              <i class="fas fa-ban"></i>
+            </button>
+            <button type="button" class="btn btn-primary btn-icon" data-toggle="tooltip" data-placement="bottom"
+              title="Gravar Manifestação">
+              <i class="fas fa-save"></i>
+            </button>
+          </div>
+          <div id="wrapperManif" data-spy="scroll" data-target="#navbar-manif" data-offset="0" class="wrapper scroll1">
+            <a id="lnkManif"></a>
+            <div class="row mt-2">
+              <div class="col-lg-12 col-xl-12">
+                <div class="card mg-b-10">
+                  <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="mg-b-0">Manifestação</h5>
+                  </div>
+                  <div class="card-body pd-b-0">
+                    <div class="row no-gutters">
+                      <div class="col-lg-4">
+                        <label>Linha</label>
+                        <select class="form-control"></select>
+                      </div>
+                      <div class="col-lg-4">
+                        <label>Produto/Assunto</label>
+                        <select class="form-control"></select>
+                      </div>
+                      <div class="col-lg-4">
+                        <label>Variedade</label>
+                        <select class="form-control"></select>
+                      </div>
+                    </div>
+                    <div class="row no-gutters">
+                      <div class="col-lg-4" style="margin-bottom: 0rem;">
+                        <label>Manifestação</label>
+                        <select class="form-control"></select>
+                      </div>
+                      <div class="col-lg-4" style="margin-bottom: 0rem;">
+                        <label>Grupo Manifestação</label>
+                        <select class="form-control"></select>
+                      </div>
+                      <div class="col">
+                        <label>Tipo Manifestação</label>
+                        <select class="form-control"></select>
+                      </div>
+                      <div class="col-auto" style="margin-top: 23px;">
+                        <button class="btn btn-primary btn-icon" type="button" data-toggle="tooltip"
+                          data-placement="bottom" title="Aplicar Composição">
+                          <i class="fas fa-file-download"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row no-gutters">
+                      <div class="col-lg-6">
+                        <label>Procedimento</label>
+                        <a href="#" class="badge badge-light" style="margin-bottom: 5px;">
+                          <i class="fas fa-binoculars"></i>
+                        </a>
+                        <textarea class="form-control" rows="2"></textarea>
+                      </div>
+                      <div class="col-lg-6">
+                        <label>Orientação</label>
+                        <a href="#" class="badge badge-light" style="margin-bottom: 5px;">
+                          <i class="fas fa-binoculars"></i>
+                        </a>
+                        <textarea class="form-control" rows="2"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="row no-gutters">
+                      <div class="col-lg-8" style="margin-bottom: 0rem;">
+                        <label>Descrição</label>
+                        <textarea class="form-control" rows="10"></textarea>
+                      </div>
+                      <div class="col-lg-4" style="margin-bottom: 0rem;">
+                        <div>
+                          <label>Previsão Resolução</label>
+                          <input type="date" class="form-control" />
+                        </div>
+                        <div style="margin-top: 10px">
+                          <label>Data Abertura</label>
+                          <input type="date" class="form-control" />
+                        </div>
+                        <div style="margin-top: 10px">
+                          <label>Classificação</label>
+                          <select class="form-control"></select>
+                        </div>
+                        <div style="margin-top: 10px">
+                          <label>Status da Manifestação</label>
+                          <select class="form-control"></select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--FOLLOWUP-->
+            <a id="lnkFollowUp"></a>
+            <div class="row mt-3">
+              <div class="col-lg-12 col-xl-12">
+                <div class="card mg-b-10">
+                  <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="mg-b-0">FollowUp</h5>
+                  </div>
+                  <div class="card-body pd-b-0">
+                    <div class="row no-gutters">
+                      <div class="col-lg-4">
+                        <label>Evento</label>
+                        <select class="form-control"></select>
+                      </div>
+                      <div class="col-lg-4">
+                        <label>Equipe</label>
+                        <select class="form-control"></select>
+                      </div>
+                      <div class="col-lg-4">
+                        <label>Responsável</label>
+                        <select class="form-control"></select>
+                      </div>
+                    </div>
+                    <div class="row no-gutters">
+                      <div class="col-lg-4">
+                        <label>Mensagem</label>
+                        <textarea class="form-control" rows="4"></textarea>
+                      </div>
+                      <div class="col-lg-4">
+                        <label>Resposta</label>
+                        <textarea class="form-control" rows="4" disabled></textarea>
+                      </div>
+                      <div class="col-lg-4">
+                        <div>
+                          <label>Data Previsão</label>
+                          <input type="date" class="form-control" />
+                        </div>
+                        <div class="row no-gutters">
+                          <div class="col" style="margin-top: 10px">
+                            <label>Hora</label>
+                            <input type="time" class="form-control" />
+                          </div>
+                          <div class="col-auto" style="margin-top: 33px; padding-left: 0px;">
+                            <button class="btn btn-light mr-1 btn-icon" style="border-color: #dee2e6;" type="button"
+                              data-toggle="tooltip" data-placement="bottom" title="Novo">
+                              <i class="fas fa-file"></i>
+                            </button>
+                            <button class="btn btn-primary btn-icon" type="button" data-toggle="tooltip"
+                              data-placement="bottom" title="Aplicar FollowUp">
+                              <i class="fas fa-file-download"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row no-gutters" style="margin-top: 10px !important;">
+                      <div class="col-lg-12 col-xl-12">
+                        <div class="table-responsive scroll1">
+                          <table class="table table-sm bg-white">
+                            <thead>
+                              <tr>
+                                <th class="wd-40p text-left">Responsável
+                                  <a href="#" class="badge badge-light">
+                                    <i class="fas fa-sort-down"></i>
+                                  </a>
+                                </th>
+                                <th class="wd-30p text-left">Evento
+                                  <a href="#" class="badge badge-light">
+                                    <i class="fas fa-sort"></i>
+                                  </a>
+                                </th>
+                                <th class="wd-10p text-left">Registro
+                                  <a href="#" class="badge badge-light">
+                                    <i class="fas fa-sort"></i>
+                                  </a>
+                                </th>
+                                <th class="wd-10p text-left">Previsão
+                                  <a href="#" class="badge badge-light">
+                                    <i class="fas fa-sort"></i>
+                                  </a>
+                                </th>
+                                <th class="wd-10p ">&nbsp;</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-left">
+                                  <div class="truncate300"
+                                    title="Solicitação, Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic">
+                                    Solicitação, Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
+                                    laying out print, graphic
+                                  </div>
+                                </td>
+                                <td class="text-left">
+                                  <div class="truncate200" title="Aguardando Analise">
+                                    Aguardando Analise
+                                  </div>
+                                </td>
+                                <td class="text-left">
+                                  06/01/2020 12:00
+                                </td>
+                                <td class="text-left">
+                                  08/01/2020 12:00
+                                </td>
+                                <td class=" text-right">
+                                  <a href="#" class="ml-3 mr-3"
+                                    onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoAnexoFollowUp.html','file':['filepond1'],'title':'Anexo FollowUp'})">
+                                    <i class="fas fa-cloud"></i>
+                                  </a>
+                                  <a href="#" class="mr-3">
+                                    <i class="fas fa-edit"></i>
+                                  </a>
+                                  <a href="#" class="mr-1">
+                                    <i class="fas fa-trash-alt"></i>
+                                  </a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left">
+                                  <div class="truncate300" title="Analise MédicaAnalise MédicaAnalise Médica">
+                                    Analise MédicaAnalise MédicaAnalise Médica
+                                  </div>
+                                </td>
+                                <td class="text-left">
+                                  <div class="truncate200" title="Aguardando Analise">
+                                    Aguardando Analise
+                                  </div>
+                                </td>
+                                <td class="text-left">
+                                  06/01/2020 12:00
+                                </td>
+                                <td class="text-left">
+                                  08/01/2020 12:00
+                                </td>
+                                <td class=" text-right">
+                                  <a href="#" class="ml-3 mr-3"
+                                    onclick="appModule.getModal({size:'Xl', app: '/modules/manifestacao/manifestacaoAnexoFollowUp.html', file:['filepond1'], title:'Anexo FollowUp'})">
+                                    <i class="fas fa-cloud"></i>
+                                  </a>
+                                  <a href="#" class="mr-3">
+                                    <i class="fas fa-edit"></i>
+                                  </a>
+                                  <a href="#" class="mr-1">
+                                    <i class="fas fa-trash-alt"></i>
+                                  </a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left">
+                                  <div class="truncate300" title="Analise MédicaAnalise MédicaAnalise Médica">
+                                    Analise MédicaAnalise MédicaAnalise Médica
+                                  </div>
+                                </td>
+                                <td class="text-left">
+                                  <div class="truncate200" title="Aguardando Analise">
+                                    Aguardando Analise
+                                  </div>
+                                </td>
+                                <td class="text-left">
+                                  06/01/2020 12:00
+                                </td>
+                                <td class="text-left">
+                                  08/01/2020 12:00
+                                </td>
+                                <td class=" text-right">
+                                  <a href="#" class="ml-3 mr-3"
+                                    onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/FollowUp.html',file:['filepond1'],title:'Anexo FollowUp'})">
+                                    <i class="fas fa-cloud"></i>
+                                  </a>
+                                  <a href="#" class="mr-3">
+                                    <i class="fas fa-edit"></i>
+                                  </a>
+                                  <a href="#" class="mr-1">
+                                    <i class="fas fa-trash-alt"></i>
+                                  </a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-left">
+                                  <div class="truncate300" title="Analise MédicaAnalise MédicaAnalise Médica">
+                                    Analise MédicaAnalise MédicaAnalise Médica
+                                  </div>
+                                </td>
+                                <td class="text-left">
+                                  <div class="truncate200" title="Aguardando Analise">
+                                    Aguardando Analise
+                                  </div>
+                                </td>
+                                <td class="text-left">
+                                  06/01/2020 12:00
+                                </td>
+                                <td class="text-left">
+                                  08/01/2020 12:00
+                                </td>
+                                <td class=" text-right">
+                                  <a href="#" class="ml-3 mr-3"
+                                    onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoAnexoFollowUp.html',file:['filepond1'],title:'Anexo FollowUp'})">
+                                    <i class="fas fa-cloud"></i>
+                                  </a>
+                                  <a href="#" class="mr-3">
+                                    <i class="fas fa-edit"></i>
+                                  </a>
+                                  <a href="#" class="mr-1">
+                                    <i class="fas fa-trash-alt"></i>
+                                  </a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <nav aria-label="Page navigation example">
+                            <ul class="pagination pagination-sm">
+                              <li class="page-item active" aria-current="page">
+                                <span class="page-link">1<span class="sr-only">(current)</span></span>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/FOLLOWUP-->
+
+            <!--CONCLUSAO-->
+            <a id="lnkConclusao"></a>
+            <div class="row mt-3">
+              <div class="col-lg-12 col-xl-12">
+                <div class="card mg-b-10">
+                  <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="mg-b-0">Conclusão</h5>
+                  </div>
+                  <div class="card-body pd-b-0">
+                    <div class="row no-gutters">
+                      <div class="col-lg-8" style="margin-bottom: 0rem;">
+                        <label>Descrição</label>
+                        <textarea class="form-control" rows="7"></textarea>
+                      </div>
+                      <div class="col-lg-4" style="margin-bottom: 0rem;">
+                        <div>
+                          <label>Grau de Satisfação</label>
+                          <select class="form-control"></select>
+                        </div>
+                        <div style="margin-top: 10px;">
+                          <label>Resultado da Manifestação</label>
+                          <select class="form-control"></select>
+                        </div>
+                        <div style="margin-top: 10px;">
+                          <label>Data Conclusão</label>
+                          <input type="date" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/CONCLUSAO-->
+          </div>
+        </div>
+        <div>
+          <div id="histControlWindow">
+            <a id="icoControlWindow" href="#" class="mr-3" data-toggle="tooltip" data-placement="bottom"
+              title="Minimizar">
+              <i class="fas fa-window-minimize"></i>
+            </a>
+          </div>
+          <ul class="nav nav-tabs mt-3" id="myTab2" role="tablist">
+            <li class="nav-item dropdown">
+              <a class="nav-link active dropdown-toggle" id="historico-tab" data-toggle="dropdown" href="#"
+                role="button" aria-haspopup="true" aria-expanded="false">Histórico (Vencidos)</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item active" id="vencidos-tab" href="#vencidos"
+                  onclick="appModule.setHistorico(this.id)">Vencidos</a>
+                <a class="dropdown-item" id="pendentes-tab" href="#pendentes"
+                  onclick="appModule.setHistorico(this.id)">Pendentes</a>
+              </div>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="correspondencia-tab" data-toggle="tab" href="#correspondencia" role="tab"
+                aria-controls="correspondencia" aria-selected="false">Correspondência</a>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content mb-3" id="myTabContent2">
+          <div class="tab-pane fade show active" id="vencidos" role="tabpanel" aria-labelledby="vencidos-tab">
+            <div id="wrapperHistVencidos" data-spy="scroll" data-target="#navbar-historico" data-offset="0" class="wrapper-inf">
+              <div class="card mb-3 mt-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="table-responsive scroll1">
+                        <table class="table table-sm bg-white mr-3">
+                          <thead>
+                            <tr>
+                              <th class="wd-10p text-left">Protocolo
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort-down"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Nº Atendimento
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Abertura
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-15p text-left">Manifestação
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Tipo Manifestação
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Produto/Assunto
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Variedade
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Conclusão
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-5p ">&nbsp;</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="text-left">
+                                V10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                123456
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                <div class="truncate200"
+                                  title="Solicitação, Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic">
+                                  Solicitação, Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
+                                  laying out print, graphic
+                                </div>
+                              </td>
+                              <td class="text-left">
+                                E-mail
+                              </td>
+                              <td class="text-left">
+                                Auto
+                              </td>
+                              <td class="text-left">
+                                Individual
+                              </td>
+                              <td class="text-left"></td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({size:'Xl', app:'/modules/manifestacao/manifestacaoFicha.html', title:'Ficha da Manifestação'})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-3">
+                                  <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="mr-1">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-left">
+                                V10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                123456
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                Solicitação
+                              </td>
+                              <td class="text-left">
+                                E-mail
+                              </td>
+                              <td class="text-left">
+                                Auto
+                              </td>
+                              <td class="text-left">
+                                Individual
+                              </td>
+                              <td class="text-left">
+                                08/01/2020 15:30
+                              </td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoFicha.html',title:'Ficha da Manifestação'})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-3">
+                                  <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="mr-1">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-left">
+                                V10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                123456
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                Solicitação
+                              </td>
+                              <td class="text-left">
+                                E-mail
+                              </td>
+                              <td class="text-left">
+                                Auto
+                              </td>
+                              <td class="text-left">
+                                Individual
+                              </td>
+                              <td class="text-left">
+                                08/01/2020 15:30
+                              </td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoFicha.html',title:'Ficha da Manifestação'})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-3">
+                                  <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="mr-1">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-left">
+                                V10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                123456
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                Solicitação
+                              </td>
+                              <td class="text-left">
+                                E-mail
+                              </td>
+                              <td class="text-left">
+                                Auto
+                              </td>
+                              <td class="text-left">
+                                Individual
+                              </td>
+                              <td class="text-left">
+                                08/01/2020 15:30
+                              </td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoFicha.html',title:'Ficha da Manifestação'})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-3">
+                                  <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="mr-1">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <nav aria-label="Page navigation example">
+                          <ul class="pagination pagination-sm">
+                            <li class="page-item active" aria-current="page">
+                              <span class="page-link">
+                                1
+                                <span class="sr-only">(current)</span>
+                              </span>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade show" id="pendentes" role="tabpanel" aria-labelledby="pendentes-tab">
+            <div id="wrapperHistPendentes" data-spy="scroll" data-target="#navbar-historico" data-offset="0" class="wrapper-inf">
+              <div class="card mb-3 mt-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="table-responsive scroll1">
+                        <table class="table table-sm bg-white mr-3">
+                          <thead>
+                            <tr>
+                              <th class="wd-10p text-left">Protocolo
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort-down"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Nº Atendimento
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Abertura
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-15p text-left">Manifestação
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Tipo Manifestação
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Produto/Assunto
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Variedade
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Conclusão
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-5p ">&nbsp;</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="text-left">
+                                P10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                123456
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                <div class="truncate200"
+                                  title="Solicitação, Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic">
+                                  Solicitação, Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
+                                  laying out print, graphic
+                                </div>
+                              </td>
+                              <td class="text-left">
+                                E-mail
+                              </td>
+                              <td class="text-left">
+                                Auto
+                              </td>
+                              <td class="text-left">
+                                Individual
+                              </td>
+                              <td class="text-left"></td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({size:'Xl', app:'/modules/manifestacao/manifestacaoFicha.html', title:'Ficha da Manifestação'})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-3">
+                                  <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="mr-1">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-left">
+                                P10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                123456
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                Solicitação
+                              </td>
+                              <td class="text-left">
+                                E-mail
+                              </td>
+                              <td class="text-left">
+                                Auto
+                              </td>
+                              <td class="text-left">
+                                Individual
+                              </td>
+                              <td class="text-left"></td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoFicha.html',title:'Ficha da Manifestação'})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-3">
+                                  <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="mr-1">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-left">
+                                P10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                123456
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                Solicitação
+                              </td>
+                              <td class="text-left">
+                                E-mail
+                              </td>
+                              <td class="text-left">
+                                Auto
+                              </td>
+                              <td class="text-left">
+                                Individual
+                              </td>
+                              <td class="text-left">
+                                08/01/2020 15:30
+                              </td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoFicha.html',title:'Ficha da Manifestação'})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-3">
+                                  <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="mr-1">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-left">
+                                P10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                123456
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                Solicitação
+                              </td>
+                              <td class="text-left">
+                                E-mail
+                              </td>
+                              <td class="text-left">
+                                Auto
+                              </td>
+                              <td class="text-left">
+                                Individual
+                              </td>
+                              <td class="text-left">
+                                08/01/2020 15:30
+                              </td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoFicha.html',title:'Ficha da Manifestação'})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-3">
+                                  <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="mr-1">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <nav aria-label="Page navigation example">
+                          <ul class="pagination pagination-sm">
+                            <li class="page-item active" aria-current="page">
+                              <span class="page-link">
+                                1
+                                <span class="sr-only">(current)</span>
+                              </span>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="correspondencia" role="tabpanel" aria-labelledby="correspondencia-tab">
+            <div id="wrapperCorresp" data-spy="scroll" data-target="#navbar-corresp" data-offset="0"
+              class="wrapper-inf">
+              <div class="card mb-3 mt-4">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="table-responsive scroll1">
+                        <table class="table table-sm bg-white">
+                          <thead>
+                            <tr>
+                              <th class="wd-10p text-left">Protocolo
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort-down"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Data Atendimento
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-20p text-left">Tipo
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-30p text-left">Titulo
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Envio
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p text-left">Atendente
+                                <a href="#" class="badge badge-light">
+                                  <i class="fas fa-sort"></i>
+                                </a>
+                              </th>
+                              <th class="wd-10p ">&nbsp;</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="text-left">
+                                10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                SMS
+                              </td>
+                              <td class="text-left">
+                                Retorno: Solicitação de Reembolso
+                              </td>
+                              <td class="text-left">
+                                08/01/2020 15:30
+                              </td>
+                              <td class="text-left">
+                                Maria Silva
+                              </td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoFicha.html',file:['filepond1']})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-1"
+                                  onclick="appModule.confirmDelete({'func':appModule.removerManifestacaoFicha, 'id': 123453})">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-left">
+                                10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                Email
+                              </td>
+                              <td class="text-left">
+                                Solicitação de Informação: Referenciados
+                              </td>
+                              <td class="text-left">
+                                08/01/2020 15:30
+                              </td>
+                              <td class="text-left">
+                                Maria Silva
+                              </td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoFicha.html',file:['filepond1']})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-1"
+                                  onclick="appModule.confirmDelete({'func':appModule.removerManifestacaoFicha, 'id': 123454})">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-left">
+                                10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                Email
+                              </td>
+                              <td class="text-left">
+                                Solicitação de Informação: Referenciados
+                              </td>
+                              <td class="text-left">
+                                08/01/2020 15:30
+                              </td>
+                              <td class="text-left">
+                                Maria Silva
+                              </td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoFicha.html',file:['filepond1']})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-1"
+                                  onclick="appModule.confirmDelete({'func':appModule.removerManifestacaoFicha, 'id': 123455})">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-left">
+                                10-8967534-09867454
+                              </td>
+                              <td class="text-left">
+                                06/01/2020 12:00
+                              </td>
+                              <td class="text-left">
+                                Email
+                              </td>
+                              <td class="text-left">
+                                Solicitação de Informação: Referenciados
+                              </td>
+                              <td class="text-left">
+                                08/01/2020 15:30
+                              </td>
+                              <td class="text-left">
+                                Maria Silva
+                              </td>
+                              <td class="text-right">
+                                <a href="#" class="ml-3 mr-3"
+                                  onclick="appModule.getModal({'size':'Xl','app':'/modules/manifestacao/manifestacaoFicha.html',file:['filepond1']})">
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="mr-1"
+                                  onclick="appModule.confirmDelete({'func':appModule.removerManifestacaoFicha, 'id': 123456})">
+                                  <i class="fas fa-trash-alt"></i>
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <nav aria-label="Page navigation example">
+                          <ul class="pagination pagination-sm">
+                            <li class="page-item active" aria-current="page">
+                              <span class="page-link">1<span class="sr-only">(current)</span></span>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <!-- MODAL-XL -->
+  <div class="modal fade scroll1" id="Xl" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">_Modal_</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL-LG -->
+  <div class="modal fade scroll1" id="Lg" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">_Modal_</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL-SM -->
+  <div class="modal fade scroll1" id="Sm" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">_Modal_</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/jquery/jquery-3.5.1.min.js"></script>
+  <script src="assets/popper.js/dist/popper.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+  <script src="assets/jquery-confirm/dist/jquery-confirm.min.js"></script>
+  <script src="assets/Dual-Listbox-Transfer/js/jquery.transfer.js?v=0.0.6"></script>
+  <script src="assets/crypto-js/crypto-js.js"></script>
+  <script src="assets/crypto-js/pbkdf2.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+  <script src="assets/simplePagination.js/jquery.simplePagination.js"></script>
+  <script>
+    let appModule = {};    
+    /*window.onload = function () {
+        
+        document.onkeydown = function (event) {  
+          if(event.key == 'F5' || (event.ctrlKey && event.key == 'r')){
+            event.preventDefault();
+          }
+        };  
+
+        window.addEventListener('contextmenu', (event) => {
+          event.preventDefault();
+        }, false);
+    }*/
+  </script>
+  <script src="modules/App.js" type="module"></script>
+
+</body>
+</html>

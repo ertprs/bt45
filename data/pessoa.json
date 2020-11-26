@@ -1,0 +1,47 @@
+{
+    "pessoa": {
+        "cargo": "ccccccccccccccccc",
+        "codigoCorporativo": "1111111111111",
+        "cpfCnpf": "5555555555555",
+        "dataDeNascimento": "2020-11-16",
+        "emailAlternativo": "BBBBBBBBB@",
+        "emailPrincipal": "aaaaaaa@",
+        "estadoCivil": "CASADO",
+        "genero": "M",
+        "id": 0,
+        "naoContactar": ["CORREIO"],
+        "nomeRazaoSocial": "aaaaaaaaaaaaa",
+        "passaporte": "666666666666",
+        "pessoaFisicaJuridica": "F",
+        "profissao": "ppppppppppppppp",
+        "rgIe": "44444444444",
+        "telefoneCelular": "22222222222",
+        "telefoneComercial": "3333333333333",
+        "telefoneResidencial": "",
+        "tipoDePublico": "5",
+        "tratamento": "v.",
+        "endereco": [
+            {
+                "bairro": "Tijuca",
+                "cep": "20520-060",
+                "complemento": "apto 401",
+                "localidade": "Rio de Janeiro",
+                "logradouro": "Rua Moura Brito",
+                "numero": "189",
+                "principal": "N",
+                "tipoEndereco": "",
+                "uf": "RJ"
+            }, {
+                    "bairro": "Tijuca",
+                    "cep": "20520-050",
+                    "complemento": "até 0223 - lado ímpar",
+                    "localidade": "Rio de Janeiro",
+                    "logradouro": "Rua Conde de Bonfim",
+                    "numero": "1",
+                    "principal": "N",
+                    "tipoEndereco": "",
+                    "uf": "RJ"
+            }
+        ],
+        "solicitacaoDereembolso": []
+}

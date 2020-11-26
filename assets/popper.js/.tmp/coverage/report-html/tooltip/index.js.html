@@ -1,0 +1,1208 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for tooltip/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">tooltip/</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">88.52% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>108/122</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.43% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>50/70</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.3% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>26/27</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.04% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>104/113</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Popper from 'popper.js';
+&nbsp;
+const DEFAULT_OPTIONS = {
+    container: false,
+    delay: 0,
+    html: false,
+    placement: 'top',
+    title: '',
+    template: '&lt;div class="tooltip" role="tooltip"&gt;&lt;div class="tooltip-arrow"&gt;&lt;/div&gt;&lt;div class="tooltip-inner"&gt;&lt;/div&gt;&lt;/div&gt;',
+    trigger: 'hover focus',
+    offset: 0,
+};
+&nbsp;
+export default class Tooltip {
+    /**
+     * Create a new Tooltip.js instance
+     * @class Tooltip
+     * @param {HTMLElement} reference - The reference element used to position the tooltip
+     * @param {Object} options
+     * @param {String} options.placement=bottom
+     *      Placement of the popper accepted values: `top(-start, -end), right(-start, -end), bottom(-start, -end),
+     *      left(-start, -end)`
+     *
+     * @param {HTMLElement} reference - The DOM node used as reference of the tooltip (it can be a jQuery element).
+     * @param {Object} options - Configuration of the tooltip
+     * @param {HTMLElement|String|false} options.container=false - Append the tooltip to a specific element.
+     * @param {Number|Object} options.delay=0
+     *      Delay showing and hiding the tooltip (ms) - does not apply to manual trigger type.
+     *      If a number is supplied, delay is applied to both hide/show.
+     *      Object structure is: `{ show: 500, hide: 100 }`
+     * @param {Boolean} options.html=false - Insert HTML into the tooltip. If false, the content will inserted with `innerText`.
+     * @param {String|PlacementFunction} options.placement='top' - One of the allowed placements, or a function returning one of them.
+     * @param {String} options.template='&lt;div class="tooltip" role="tooltip"&gt;&lt;div class="tooltip-arrow"&gt;&lt;/div&gt;&lt;div class="tooltip-inner"&gt;&lt;/div&gt;&lt;/div&gt;'
+     *      Base HTML to used when creating the tooltip.
+     *      The tooltip's `title` will be injected into the `.tooltip-inner` or `.tooltip__inner`.
+     *      `.tooltip-arrow` or `.tooltip__arrow` will become the tooltip's arrow.
+     *      The outermost wrapper element should have the `.tooltip` class.
+     * @param {String|HTMLElement|TitleFunction} options.title='' - Default title value if `title` attribute isn't present.
+     * @param {String} options.trigger='hover focus'
+     *      How tooltip is triggered - click | hover | focus | manual.
+     *      You may pass multiple triggers; separate them with a space. `manual` cannot be combined with any other trigger.
+     * @param {HTMLElement} options.boundariesElement
+     *      The element used as boundaries for the tooltip. For more information refer to Popper.js'
+     *      [boundariesElement docs](https://popper.js.org/popper-documentation.html)
+     * @param {Number|String} options.offset=0 - Offset of the tooltip relative to its reference. For more information refer to Popper.js'
+     *      [offset docs](https://popper.js.org/popper-documentation.html)
+     * @return {Object} instance - The generated tooltip instance
+     */
+    constructor(reference, options) {
+        // apply user options over default ones
+        options = {...DEFAULT_OPTIONS, ...options};
+&nbsp;
+        reference.jquery &amp;&amp; (<span class="branch-1 cbranch-no" title="branch not covered" >reference = reference[0])</span>;
+&nbsp;
+        // cache reference and options
+        this.reference = reference;
+        this.options = options;
+&nbsp;
+        // get events list
+        const events = typeof options.trigger === 'string' ? options.trigger.split(' ').filter((trigger) =&gt; {
+            return ['click', 'hover', 'focus'].indexOf(trigger) !== -1;
+        }) : <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
+&nbsp;
+        // set initial state
+        this._isOpen = false;
+&nbsp;
+        // set event listeners
+        this._setEventListeners(reference, events, options);
+    }
+&nbsp;
+    //
+    // Public methods
+    //
+&nbsp;
+    /**
+     * Reveals an element's tooltip. This is considered a "manual" triggering of the tooltip.
+     * Tooltips with zero-length titles are never displayed.
+     * @memberof Tooltip
+     */
+    show = () =&gt; this._show(this.reference, this.options);
+&nbsp;
+    /**
+     * Hides an element’s tooltip. This is considered a “manual” triggering of the tooltip.
+     * @memberof Tooltip
+     */
+    hide = () =&gt; this._hide();
+&nbsp;
+    /**
+     * Hides and destroys an element’s tooltip.
+     * @memberof Tooltip
+     */
+    dispose = () =&gt; this._dispose();
+&nbsp;
+    /**
+     * Toggles an element’s tooltip. This is considered a “manual” triggering of the tooltip.
+     * @memberof Tooltip
+     */
+    toggle = () =&gt; {
+        if (this._isOpen) {
+            return this.hide();
+        } else {
+            return this.show();
+        }
+    }
+&nbsp;
+    //
+    // Defaults
+    //
+    arrowSelector = '.tooltip-arrow, .tooltip__arrow';
+    innerSelector = '.tooltip-inner, .tooltip__inner';
+&nbsp;
+    //
+    // Private methods
+    //
+&nbsp;
+    _events = [];
+&nbsp;
+    /**
+     * Creates a new tooltip node
+     * @memberof Tooltip
+     * @private
+     * @param {HTMLElement} reference
+     * @param {String} template
+     * @param {String|HTMLElement|TitleFunction} title
+     * @param {Boolean} allowHtml
+     * @return {HTMLelement} tooltipNode
+     */
+    _create(reference, template, title, allowHtml) {
+        // create tooltip element
+        const tooltipGenerator = window.document.createElement('div');
+        tooltipGenerator.innerHTML = template;
+        const tooltipNode = tooltipGenerator.childNodes[0];
+&nbsp;
+        // add unique ID to our tooltip (needed for accessibility reasons)
+        tooltipNode.id = `tooltip_${Math.random().toString(36).substr(2, 10)}`;
+&nbsp;
+        // set initial `aria-hidden` state to `false` (it's visible!)
+        tooltipNode.setAttribute('aria-hidden', 'false');
+&nbsp;
+        // add title to tooltip
+        const titleNode = tooltipGenerator.querySelector(this.innerSelector);
+        if (title.nodeType === 1) {
+            // if title is a node, append it only if allowHtml is true
+            allowHtml &amp;&amp; titleNode.appendChild(title);
+        }
+        else if (Popper.Utils.isFunction(title)) {
+            // if title is a function, call it and set innerText or innerHtml depending by `allowHtml` value
+            const titleText = title.call(reference);
+            allowHtml ? (<span class="branch-0 cbranch-no" title="branch not covered" >titleNode.innerHTML = titleText)</span> : (titleNode.innerText = titleText);
+        }
+        else {
+            // if it's just a simple text, set innerText or innerHtml depending by `allowHtml` value
+            allowHtml ? (titleNode.innerHTML = title) : (titleNode.innerText = title);
+        }
+&nbsp;
+        // return the generated tooltip node
+        return tooltipNode;
+    }
+&nbsp;
+    _show(reference, options) {
+        // don't show if it's already visible
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this._isOpen) { <span class="cstat-no" title="statement not covered" >return this; </span>}
+        this._isOpen = true;
+&nbsp;
+        // if the tooltipNode already exists, just show it
+        if (this._tooltipNode) {
+            this._tooltipNode.style.display = '';
+            this._tooltipNode.setAttribute('aria-hidden', 'false');
+            this.popperInstance.update();
+            return this;
+        }
+&nbsp;
+        // get title
+        const title = reference.getAttribute('title') || options.title;
+&nbsp;
+        // don't show tooltip if no title is defined
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!title) { <span class="cstat-no" title="statement not covered" >return this; </span>}
+&nbsp;
+        // create tooltip node
+        const tooltipNode = this._create(reference, options.template, title, options.html);
+&nbsp;
+        // Add `aria-describedby` to our reference element for accessibility reasons
+        tooltipNode.setAttribute('aria-describedby', tooltipNode.id);
+&nbsp;
+        // append tooltip to container
+        const container = this._findContainer(options.container, reference);
+&nbsp;
+        this._append(tooltipNode, container);
+&nbsp;
+        const popperOptions = {
+            placement: options.placement,
+            arrowElement: this.arrowSelector,
+        };
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (options.boundariesElement) {
+<span class="cstat-no" title="statement not covered" >            popperOptions.boundariesElement = options.boundariesElement;</span>
+        }
+&nbsp;
+        this.popperInstance = new Popper(reference, tooltipNode, popperOptions);
+&nbsp;
+        this._tooltipNode = tooltipNode;
+&nbsp;
+        return this;
+    }
+&nbsp;
+&nbsp;
+    _hide(/*reference, options*/) {
+        // don't hide if it's already hidden
+        if (!this._isOpen) { return this; }
+&nbsp;
+        this._isOpen = false;
+&nbsp;
+        // hide tooltipNode
+        this._tooltipNode.style.display = 'none';
+        this._tooltipNode.setAttribute('aria-hidden', 'true');
+&nbsp;
+        return this;
+    }
+&nbsp;
+    _dispose() {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (this._tooltipNode) {
+            this._hide();
+&nbsp;
+            // destroy instance
+            this.popperInstance.destroy();
+&nbsp;
+            // remove event listeners
+            this._events.forEach(({func, event }) =&gt; {
+                this._tooltipNode.removeEventListener(event, func);
+            });
+            this._events = [];
+&nbsp;
+            // destroy tooltipNode
+            this._tooltipNode.parentNode.removeChild(this._tooltipNode);
+            this._tooltipNode = null;
+        }
+        return this;
+    }
+&nbsp;
+    _findContainer(container, reference) {
+        // if container is a query, get the relative element
+        if (typeof container === 'string') {
+            container = window.document.querySelector(container);
+        }
+        // if container is `false`, set it to reference parent
+        else <span class="missing-if-branch" title="else path not taken" >E</span>if (container === false) {
+            container = reference.parentNode;
+        }
+        return container;
+    }
+&nbsp;
+    /**
+     * Append tooltip to container
+     * @memberof Tooltip
+     * @private
+     * @param {HTMLElement} tooltip
+     * @param {HTMLElement|String|false} container
+     */
+    _append(tooltipNode, container) {
+        container.appendChild(tooltipNode);
+    }
+&nbsp;
+    _setEventListeners(reference, events, options) {
+        const directEvents = events.map((event) =&gt; {
+            switch(event) {
+                case 'hover':
+                    return 'mouseenter';
+                case 'focus':
+                    return 'focus';
+                case 'click':
+                    return 'click';
+<span class="branch-3 cbranch-no" title="branch not covered" >                default:</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+            }
+        });
+&nbsp;
+        const oppositeEvents = events.map((event) =&gt; {
+            switch(event) {
+                case 'hover':
+                    return 'mouseleave';
+                case 'focus':
+                    return 'blur';
+                case 'click':
+                    return 'click';
+<span class="branch-3 cbranch-no" title="branch not covered" >                default:</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+            }
+        }).filter(event =&gt; !!event);
+&nbsp;
+        // schedule show tooltip
+        directEvents.forEach((event) =&gt; {
+            const func = (evt)  =&gt; {
+                if (this._isOpen === true) { return; }
+                evt.usedByTooltip = true;
+                this._scheduleShow(reference, options.delay, options, evt);
+            };
+            this._events.push({ event, func });
+            reference.addEventListener(event, func);
+        });
+&nbsp;
+        // schedule hide tooltip
+        oppositeEvents.forEach((event) =&gt; {
+            const func = (evt) =&gt; {
+                if (evt.usedByTooltip === true) { return; }
+                this._scheduleHide(reference, options.delay, options, evt);
+            };
+            this._events.push({ event, func });
+            reference.addEventListener(event, func);
+        });
+    }
+&nbsp;
+    _scheduleShow(reference, delay, options/*, evt */) {
+        // defaults to 0
+        const computedDelay = (delay &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >delay.show)</span> || delay || 0;
+        window.setTimeout(() =&gt; this._show(reference, options), computedDelay);
+    }
+&nbsp;
+    _scheduleHide(reference, delay, options, evt) {
+        // defaults to 0
+        const computedDelay = (delay &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >delay.hide)</span> || delay || 0;
+        window.setTimeout(() =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (this._isOpen === false) { <span class="cstat-no" title="statement not covered" >return; </span>}
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!document.body.contains(this._tooltipNode)) { <span class="cstat-no" title="statement not covered" >return; </span>}
+&nbsp;
+            // if we are hiding because of a mouseleave, we must check that the new
+            // reference isn't the tooltip, because in this case we don't want to hide it
+            if (evt.type === 'mouseleave') {
+                const isSet = this._setTooltipNodeEvent(evt, reference, delay, options);
+&nbsp;
+                // if we set the new event, don't hide the tooltip yet
+                // the new event will take care to hide it if necessary
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (isSet) { <span class="cstat-no" title="statement not covered" >return; </span>}
+            }
+&nbsp;
+            this._hide(reference, options);
+        }, computedDelay);
+    }
+&nbsp;
+    _setTooltipNodeEvent = (evt, reference, delay, options) =&gt; {
+        const relatedreference = evt.relatedreference || evt.toElement;
+&nbsp;
+        const callback = (evt2) =&gt; <span class="fstat-no" title="function not covered" >{</span>
+            const relatedreference2 = <span class="cstat-no" title="statement not covered" >evt2.relatedreference || evt2.toElement;</span>
+&nbsp;
+            // Remove event listener after call
+<span class="cstat-no" title="statement not covered" >            this._tooltipNode.removeEventListener(evt.type, callback);</span>
+&nbsp;
+            // If the new reference is not the reference element
+<span class="cstat-no" title="statement not covered" >            if (!reference.contains(relatedreference2)) {</span>
+&nbsp;
+                // Schedule to hide tooltip
+<span class="cstat-no" title="statement not covered" >                this._scheduleHide(reference, options.delay, options, evt2);</span>
+            }
+        };
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this._tooltipNode.contains(relatedreference)) {
+            // listen to mouseleave on the tooltip element to be able to hide the tooltip
+<span class="cstat-no" title="statement not covered" >            this._tooltipNode.addEventListener(evt.type, callback);</span>
+<span class="cstat-no" title="statement not covered" >            return true;</span>
+        }
+&nbsp;
+        return false;
+    }
+}
+&nbsp;
+&nbsp;
+/**
+ * Placement function, its context is the Tooltip instance.
+ * @memberof Tooltip
+ * @callback PlacementFunction
+ * @param {HTMLElement} tooltip - tooltip DOM node.
+ * @param {HTMLElement} reference - reference DOM node.
+ * @return {String} placement - One of the allowed placement options.
+ */
+&nbsp;
+/**
+ * Title function, its context is the Tooltip instance.
+ * @memberof Tooltip
+ * @callback TitleFunction
+ * @return {String} placement - The desired title.
+ */
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jan 14 2017 17:00:27 GMT+0100 (CET)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

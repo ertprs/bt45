@@ -1,0 +1,23 @@
+{
+    "name": "bt45",
+    "version": "0.0.1",
+    "description": "App",
+    "author": "sandroe2000@gmail.com",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sandroe2000/bt45.git"
+    },
+    "license": "MIT",
+    "private": true,
+    "devDependencies": {
+        "browser-sync": "^2.26.7",
+        "gulp": "^4.0.2",
+        "http-proxy-middleware": "^0.20.0",
+        "url": "^0.11.0"
+    },
+    "dependencies": {
+        "crypto-js": "^4.0.0",
+        "jsonpath-plus": "^4.0.0"
+    },
+    "optionalDependencies": {}
+}

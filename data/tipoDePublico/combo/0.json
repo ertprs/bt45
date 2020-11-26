@@ -1,0 +1,23 @@
+{
+    "content":[
+        {
+            "id": 1,
+            "descricao": "Prospect"
+        },{
+            "id": 2,
+            "descricao": "Cliente"
+        },{
+            "id": 3,
+            "descricao": "Segurado"
+        },{
+            "id": 4,
+            "descricao": "Terceiro"
+        },{
+            "id": 5,
+            "descricao": "Titular"
+        },{
+            "id": 6,
+            "descricao": "Dependente"
+        }
+    ]
+}

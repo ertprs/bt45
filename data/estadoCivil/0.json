@@ -1,0 +1,20 @@
+{
+    "content":[
+        {
+            "id": "SOLTEIRO",
+            "descricao": "Solteiro"
+        },{
+            "id": "CASADO",
+            "descricao": "Casado"
+        },{
+            "id": "SEPARADO",
+            "descricao": "Separado"
+        },{
+            "id": "DIVORCIADO",
+            "descricao": "Divorciado"
+        },{
+            "id": "VIUVO",
+            "descricao": "Viúvo"
+        }
+    ]
+}

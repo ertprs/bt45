@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for popper/modifiers/flip.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">popper/modifiers/</a> flip.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.74% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>36/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.64% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>53/56</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.74% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>36/38</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">103×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">198×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import getOppositePlacement from '../utils/getOppositePlacement';
+import getOppositeVariation from '../utils/getOppositeVariation';
+import getClientRect from '../utils/getClientRect';
+import getPopperOffsets from '../utils/getPopperOffsets';
+import runModifiers from '../utils/runModifiers';
+import getBoundaries from '../utils/getBoundaries';
+import isModifierEnabled from '../utils/isModifierEnabled';
+&nbsp;
+/**
+ * Modifier used to flip the placement of the popper when the latter is starting overlapping its reference element.
+ * Requires the `preventOverflow` modifier before it in order to work.
+ * **NOTE:** data.instance modifier will run all its previous modifiers everytime it tries to flip the popper!
+ * @method
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+export default function flip(data, options) {
+    // if `inner` modifier is enabled, we can't use the `flip` modifier
+    if (isModifierEnabled(data.instance.modifiers, 'inner')) {
+        return data;
+    }
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (data.flipped &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >data.placement === data.originalPlacement)</span> {
+        // seems like flip is trying to loop, probably there's not enough space on any of the flippable sides
+<span class="cstat-no" title="statement not covered" >        return data;</span>
+    }
+&nbsp;
+    const boundaries = getBoundaries(data.instance.popper, options.padding, options.boundariesElement);
+&nbsp;
+    let placement = data.placement.split('-')[0];
+    let placementOpposite = getOppositePlacement(placement);
+    let variation = data.placement.split('-')[1] || '';
+&nbsp;
+    let flipOrder = [];
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (options.behavior === 'flip') {
+        flipOrder = [
+            placement,
+            placementOpposite
+        ];
+    } else {
+<span class="cstat-no" title="statement not covered" >        flipOrder = options.behavior;</span>
+    }
+&nbsp;
+    flipOrder.forEach((step, index) =&gt; {
+        if (placement !== step || flipOrder.length === index + 1) {
+            return data;
+        }
+&nbsp;
+        placement = data.placement.split('-')[0];
+        placementOpposite = getOppositePlacement(placement);
+&nbsp;
+        const popperOffsets = getClientRect(data.offsets.popper);
+        const refOffsets = data.offsets.reference;
+&nbsp;
+        // using floor because the reference offsets may contain decimals we are not going to consider here
+        const floor = Math.floor;
+        const overlapsRef = (
+            (placement === 'left'   &amp;&amp; floor(popperOffsets.right) &gt; floor(refOffsets.left)) ||
+            (placement === 'right'  &amp;&amp; floor(popperOffsets.left) &lt; floor(refOffsets.right)) ||
+            (placement === 'top'    &amp;&amp; floor(popperOffsets.bottom) &gt; floor(refOffsets.top)) ||
+            (placement === 'bottom' &amp;&amp; floor(popperOffsets.top) &lt; floor(refOffsets.bottom))
+        );
+&nbsp;
+        const overflowsLeft = floor(popperOffsets.left) &lt; floor(boundaries.left);
+        const overflowsRight = floor(popperOffsets.right) &gt; floor(boundaries.right);
+        const overflowsTop = floor(popperOffsets.top) &lt; floor(boundaries.top);
+        const overflowsBottom = floor(popperOffsets.bottom) &gt; floor(boundaries.bottom);
+&nbsp;
+        const overflowsBoundaries = (
+            (placement === 'left'   &amp;&amp; overflowsLeft) ||
+            (placement === 'right'  &amp;&amp; overflowsRight) ||
+            (placement === 'top'    &amp;&amp; overflowsTop) ||
+            (placement === 'bottom' &amp;&amp; overflowsBottom)
+        );
+&nbsp;
+        // flip the variation if required
+        const isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
+        const flippedVariation = !!options.flipVariations &amp;&amp; (
+            (isVertical  &amp;&amp; variation === 'start' &amp;&amp; overflowsLeft) ||
+            (isVertical  &amp;&amp; variation === 'end'   &amp;&amp; overflowsRight) ||
+            (!isVertical &amp;&amp; variation === 'start' &amp;&amp; overflowsTop) ||
+            (!isVertical &amp;&amp; variation === 'end'   &amp;&amp; overflowsBottom)
+        );
+&nbsp;
+        if (overlapsRef || overflowsBoundaries || flippedVariation) {
+            // this boolean to detect any flip loop
+            data.flipped = true;
+&nbsp;
+            if (overlapsRef || overflowsBoundaries) {
+                placement = flipOrder[index + 1];
+            }
+&nbsp;
+            if (flippedVariation) {
+                variation = getOppositeVariation(variation);
+            }
+&nbsp;
+            data.placement = placement + (variation ? '-' + variation : '');
+            data.offsets.popper = getPopperOffsets(data.instance.state, data.instance.popper, data.offsets.reference, data.placement);
+&nbsp;
+            data = runModifiers(data.instance.modifiers, data, 'flip');
+        }
+    });
+    return data;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jan 14 2017 17:00:27 GMT+0100 (CET)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

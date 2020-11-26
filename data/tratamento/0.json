@@ -1,0 +1,17 @@
+{
+    "content":[
+        {
+            "id": "v.",
+            "descricao": "Você"
+        },{
+            "id": "Sr(a)",
+            "descricao": "Senhor(a)"
+        },{
+            "id": "V. Ex.a",
+            "descricao": "Vossa Excelência"
+        },{
+            "id": "V. S.a",
+            "descricao": "Vossa Senhoria"
+        }
+    ]
+}

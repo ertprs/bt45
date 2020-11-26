@@ -1,0 +1,1145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for popper/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">popper/</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>61/61</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>27/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>59/59</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-yes">972×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-yes">972×</span>
+<span class="cline-any cline-yes">972×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">871×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-yes">974×</span>
+<span class="cline-any cline-yes">107×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">106×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">118×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">103×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">103×</span>
+<span class="cline-any cline-yes">103×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">103×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">103×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">103×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">103×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">103×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">103×</span>
+<span class="cline-any cline-yes">93×</span>
+<span class="cline-any cline-yes">93×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">92×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">92×</span>
+<span class="cline-any cline-yes">91×</span>
+<span class="cline-any cline-yes">91×</span>
+<span class="cline-any cline-yes">91×</span>
+<span class="cline-any cline-yes">91×</span>
+<span class="cline-any cline-yes">91×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">92×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">92×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">92×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">107×</span>
+<span class="cline-any cline-yes">107×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">93×</span>
+<span class="cline-any cline-yes">91×</span>
+<span class="cline-any cline-yes">91×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Utils
+import Utils from './utils/index';
+import debounce from './utils/debounce';
+import setStyles from './utils/setStyles';
+import isTransformed from './utils/isTransformed';
+import getSupportedPropertyName from './utils/getSupportedPropertyName';
+import getPosition from './utils/getPosition';
+import getReferenceOffsets from './utils/getReferenceOffsets';
+import getPopperOffsets from './utils/getPopperOffsets';
+import isFunction from './utils/isFunction';
+import setupEventListeners from './utils/setupEventListeners';
+import removeEventListeners from './utils/removeEventListeners';
+import runModifiers from './utils/runModifiers';
+import isModifierEnabled from './utils/isModifierEnabled';
+import computeAutoPlacement from './utils/computeAutoPlacement';
+&nbsp;
+// Modifiers
+import modifiers from './modifiers/index';
+&nbsp;
+// default options
+const DEFAULTS = {
+    // placement of the popper
+    placement: 'bottom',
+&nbsp;
+    // whether events (resize, scroll) are initially enabled
+    eventsEnabled: true,
+&nbsp;
+    /**
+     * Callback called when the popper is created.
+     * By default, is set to no-op.
+     * Access Popper.js instance with `data.instance`.
+     * @callback createCallback
+     * @static
+     * @param {dataObject} data
+     */
+    onCreate: () =&gt; {},
+&nbsp;
+    /**
+     * Callback called when the popper is updated, this callback is not called
+     * on the initialization/creation of the popper, but only on subsequent
+     * updates.
+     * By default, is set to no-op.
+     * Access Popper.js instance with `data.instance`.
+     * @callback updateCallback
+     * @static
+     * @param {dataObject} data
+     */
+    onUpdate: () =&gt; {},
+&nbsp;
+    // list of functions used to modify the offsets before they are applied to the popper
+    modifiers,
+};
+&nbsp;
+/**
+ * Create a new Popper.js instance
+ * @class Popper
+ * @param {HTMLElement} reference - The reference element used to position the popper
+ * @param {HTMLElement} popper - The HTML element used as popper.
+ * @param {Object} options
+ * @param {String} options.placement=bottom
+ *      Placement of the popper accepted values: `top(-start, -end), right(-start, -end), bottom(-start, -end),
+ *      left(-start, -end)`
+ *
+ * @param {Boolean} options.eventsEnabled=true
+ *      Whether events (resize, scroll) are initially enabled
+ * @param {Boolean} options.gpuAcceleration=true
+ *      When this property is set to true, the popper position will be applied using CSS3 translate3d, allowing the
+ *      browser to use the GPU to accelerate the rendering.
+ *      If set to false, the popper will be placed using `top` and `left` properties, not using the GPU.
+ *
+ * @param {Boolean} options.removeOnDestroy=false
+ *      Set to true if you want to automatically remove the popper when you call the `destroy` method.
+ *
+ * @param {Object} options.modifiers
+ *      List of functions used to modify the data before they are applied to the popper (see source code for default values)
+ *
+ * @param {Object} options.modifiers.arrow - Arrow modifier configuration
+ * @param {String|HTMLElement} options.modifiers.arrow.element='[x-arrow]'
+ *      The DOM Node used as arrow for the popper, or a CSS selector used to get the DOM node. It must be child of
+ *      its parent Popper. Popper.js will apply to the given element the style required to align the arrow with its
+ *      reference element.
+ *      By default, it will look for a child node of the popper with the `x-arrow` attribute.
+ *
+ * @param {Object} options.modifiers.offset - Offset modifier configuration
+ * @param {Number} options.modifiers.offset.offset=0
+ *      Amount of pixels the popper will be shifted (can be negative).
+ *
+ * @param {Object} options.modifiers.preventOverflow - PreventOverflow modifier configuration
+ * @param {Array} [options.modifiers.preventOverflow.priority=['left', 'right', 'top', 'bottom']]
+ *      Priority used when Popper.js tries to avoid overflows from the boundaries, they will be checked in order,
+ *      this means that the last one will never overflow
+ * @param {String|HTMLElement} options.modifiers.preventOverflow.boundariesElement='scrollParent'
+ *      Boundaries used by the modifier, can be `scrollParent`, `window`, `viewport` or any DOM element.
+ * @param {Number} options.modifiers.preventOverflow.padding=5
+ *      Amount of pixel used to define a minimum distance between the boundaries and the popper
+ *      this makes sure the popper has always a little padding between the edges of its container.
+ *
+ * @param {Object} options.modifiers.flip - Flip modifier configuration
+ * @param {String|Array} options.modifiers.flip.behavior='flip'
+ *      The behavior used by the `flip` modifier to change the placement of the popper when the latter is trying to
+ *      overlap its reference element. Defining `flip` as value, the placement will be flipped on
+ *      its axis (`right - left`, `top - bottom`).
+ *      You can even pass an array of placements (eg: `['right', 'left', 'top']` ) to manually specify
+ *      how alter the placement when a flip is needed. (eg. in the above example, it would first flip from right to left,
+ *      then, if even in its new placement, the popper is overlapping its reference element, it will be moved to top)
+ * @param {String|HTMLElement} options.modifiers.flip.boundariesElement='viewport'
+ *      The element which will define the boundaries of the popper position, the popper will never be placed outside
+ *      of the defined boundaries (except if `keepTogether` is enabled)
+ *
+ * @param {Object} options.modifiers.inner - Inner modifier configuration
+ * @param {Number} options.modifiers.innner.enabled=false
+ *      Set to `true` to make the popper flow toward the inner of the reference element.
+ *
+ * @param {Number} options.modifiers.flip.padding=5
+ *      Amount of pixel used to define a minimum distance between the boundaries and the popper
+ *      this makes sure the popper has always a little padding between the edges of its container.
+ *
+ * @param {createCallback} options.onCreate - onCreate callback
+ *      Function called after the Popper has been instantiated.
+ *
+ * @param {updateCallback} options.onUpdate - onUpdate callback
+ *      Function called on subsequent updates of Popper.
+ *
+ * @return {Object} instance - The generated Popper.js instance
+ */
+export default class Popper {
+    constructor(reference, popper, options = {}) {
+        // make update() debounced, so that it only runs at most once-per-tick
+        this.update = debounce(this.update.bind(this));
+&nbsp;
+        // with {} we create a new object with the options inside it
+        this.options = {...Popper.Defaults, ...options};
+&nbsp;
+        // init state
+        this.state = {
+            isDestroyed: false,
+            isCreated: false,
+        };
+&nbsp;
+        // get reference and popper elements (allow jQuery wrappers)
+        this.reference = reference.jquery ? <span class="branch-0 cbranch-no" title="branch not covered" >reference[0] </span>: reference;
+        this.popper = popper.jquery ? <span class="branch-0 cbranch-no" title="branch not covered" >popper[0] </span>: popper;
+&nbsp;
+        // refactoring modifiers' list (Object =&gt; Array)
+        this.modifiers = Object.keys(Popper.Defaults.modifiers)
+                               .map((name) =&gt; ({name, ...Popper.Defaults.modifiers[name]}));
+&nbsp;
+        // assign default values to modifiers, making sure to override them with
+        // the ones defined by user
+        this.modifiers = this.modifiers.map((defaultConfig) =&gt; {
+            const userConfig = (options.modifiers &amp;&amp; options.modifiers[defaultConfig.name]) || {};
+            return {...defaultConfig, ...userConfig};
+        });
+&nbsp;
+        // add custom modifiers to the modifiers list
+        if (options.modifiers) {
+            this.options.modifiers = {...{}, ...Popper.Defaults.modifiers, ...options.modifiers};
+            Object.keys(options.modifiers).forEach((name) =&gt; {
+                // take in account only custom modifiers
+                if (Popper.Defaults.modifiers[name] === undefined) {
+                    const modifier = options.modifiers[name];
+                    modifier.name = name;
+                    this.modifiers.push(modifier);
+                }
+            });
+        }
+&nbsp;
+        // get the popper position type
+        this.state.position = getPosition(this.reference);
+&nbsp;
+        // sort the modifiers by order
+        this.modifiers = this.modifiers.sort((a, b) =&gt; a.order - b.order);
+&nbsp;
+        // modifiers have the ability to execute arbitrary code when Popper.js get inited
+        // such code is executed in the same order of its modifier
+        // they could add new properties to their options configuration
+        // BE AWARE: don't add options to `options.modifiers.name` but to `modifierOptions`!
+        this.modifiers.forEach((modifierOptions) =&gt; {
+            if (modifierOptions.enabled &amp;&amp; isFunction(modifierOptions.onLoad)) {
+                modifierOptions.onLoad(
+                    this.reference,
+                    this.popper,
+                    this.options,
+                    modifierOptions,
+                    this.state
+                );
+            }
+        });
+&nbsp;
+        // determine how we should set the origin of offsets
+        this.state.isParentTransformed = isTransformed(this.popper.parentNode);
+&nbsp;
+        // fire the first update to position the popper in the right place
+        this.update();
+&nbsp;
+        const eventsEnabled = this.options.eventsEnabled;
+        if (eventsEnabled) {
+            // setup event listeners, they will take care of update the position in specific situations
+            this.enableEventListeners();
+        }
+&nbsp;
+        this.state.eventsEnabled = eventsEnabled;
+    }
+&nbsp;
+    //
+    // Methods
+    //
+&nbsp;
+    /**
+     * Updates the position of the popper, computing the new offsets and applying the new style
+     * Prefer `scheduleUpdate` over `update` because of performance reasons
+     * @method
+     * @memberof Popper
+     */
+    update() {
+        // if popper is destroyed, don't perform any further update
+        if (this.state.isDestroyed) { return; }
+&nbsp;
+        let data = {
+            instance: this,
+            styles: {},
+            attributes: {},
+            flipped: false,
+            offsets: {},
+        };
+&nbsp;
+        // make sure to apply the popper position before any computation
+        this.state.position = getPosition(this.reference);
+        setStyles(this.popper, { position: this.state.position});
+&nbsp;
+        // compute reference element offsets
+        data.offsets.reference = getReferenceOffsets(this.state, this.popper, this.reference);
+&nbsp;
+        // compute auto placement, store placement inside the data object,
+        // modifiers will be able to edit `placement` if needed
+        // and refer to originalPlacement to know the original value
+        data.placement = computeAutoPlacement(
+            this.options.placement,
+            data.offsets.reference,
+            this.popper
+        );
+&nbsp;
+        // store the computed placement inside `originalPlacement`
+        data.originalPlacement = this.options.placement;
+&nbsp;
+        // compute the popper offsets
+        data.offsets.popper = getPopperOffsets(
+            this.state,
+            this.popper,
+            data.offsets.reference,
+            data.placement
+        );
+&nbsp;
+        // run the modifiers
+        data = runModifiers(this.modifiers, data);
+&nbsp;
+        // the first `update` will call `onCreate` callback
+        // the other ones will call `onUpdate` callback
+        if (!this.state.isCreated) {
+            this.state.isCreated = true;
+            this.options.onCreate(data);
+        } else {
+            this.options.onUpdate(data);
+        }
+    }
+&nbsp;
+    /**
+     * Schedule an update, it will run on the next UI update available
+     * @method
+     * @memberof Popper
+     */
+    scheduleUpdate = () =&gt; requestAnimationFrame(this.update);
+&nbsp;
+    /**
+     * Destroy the popper
+     * @method
+     * @memberof Popper
+     */
+    destroy() {
+        this.state.isDestroyed = true;
+&nbsp;
+        // touch DOM only if `applyStyle` modifier is enabled
+        if (isModifierEnabled(this.modifiers, 'applyStyle')) {
+            this.popper.removeAttribute('x-placement');
+            this.popper.style.left = '';
+            this.popper.style.position = '';
+            this.popper.style.top = '';
+            this.popper.style[getSupportedPropertyName('transform')] = '';
+        }
+&nbsp;
+        this.disableEventListeners();
+&nbsp;
+        // remove the popper if user explicity asked for the deletion on destroy
+        // do not use `remove` because IE11 doesn't support it
+        if (this.options.removeOnDestroy) {
+            this.popper.parentNode.removeChild(this.popper);
+        }
+        return this;
+    }
+&nbsp;
+    /**
+     * it will add resize/scroll events and start recalculating
+     * position of the popper element when they are triggered
+     * @method
+     * @memberof Popper
+     */
+    enableEventListeners() {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.state.eventsEnabled) {
+            this.state = setupEventListeners(this.reference, this.options, this.state, this.scheduleUpdate);
+        }
+    }
+&nbsp;
+    /**
+     * it will remove resize/scroll events and won't recalculate
+     * popper position when they are triggered. It also won't trigger onUpdate callback anymore,
+     * unless you call 'update' method manually.
+     * @method
+     * @memberof Popper
+     */
+    disableEventListeners() {
+        if (this.state.eventsEnabled) {
+            window.cancelAnimationFrame(this.scheduleUpdate);
+            this.state = removeEventListeners(this.reference, this.state);
+        }
+    }
+&nbsp;
+    /**
+     * Collection of utilities useful when writing custom modifiers
+     * @memberof Popper
+     */
+    static Utils = Utils;
+&nbsp;
+    /**
+     * List of accepted placements to use as values of the `placement` option
+     * @memberof Popper
+     */
+     static placements = [
+         'auto',
+         'auto-start',
+         'auto-end',
+         'top',
+         'top-start',
+         'top-end',
+         'right',
+         'right-start',
+         'right-end',
+         'bottom',
+         'bottom-start',
+         'bottom-end',
+         'left',
+         'left-start',
+         'left-end',
+     ];
+&nbsp;
+    /**
+     * Default Popper.js options
+     * @memberof Popper
+     */
+    static Defaults = DEFAULTS;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jan 14 2017 17:00:27 GMT+0100 (CET)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+    "manifestacao": {
+        "codigo": 1,
+        "protocolo": "10-8967534-09867454",
+        "linha": 1,
+        "produtoAssunto": 1,
+        "variedade": 1,
+        "manifestacao": 1,
+        "grupoManifestacao": 1,
+        "tipoManifestacao": 1,
+        "procedimento": "",
+        "orientacao": "",
+        "manifestacaoDescricao": "",
+        "previsaoResolucao": "",
+        "dataAbertura": "",
+        "classificacao": 1,
+        "statusManifestacao": 1,
+        "conclusaoDescricao": "",
+        "grauSatisfacao": 1,
+        "resultadoManifestacao": 1,
+        "dataConclusao": ""
+    },
+    "followUp": [
+        {
+            "codigo": 1,
+            "codigoManifestacao": 1,
+            "protocolo": "10-8967534-09867454",
+            "evento": 1,
+            "equipe": 1,
+            "responsavel": 1,
+            "mensagem": "",
+            "resposta": "",
+            "dataPrevisao": "",
+            "hora": "",
+            "anexoFollowUp": [
+                {
+                    "codigo": 1,
+                    "codigoFollowUp": 1,
+                    "nomeArquivo": "",
+                    "dataEnvio": "",
+                    "tamanhoArquivo": ""
+                }
+            ]
+        }
+    ]
+}

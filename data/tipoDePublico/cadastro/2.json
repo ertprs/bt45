@@ -1,0 +1,31 @@
+{
+    "content":[
+        {
+            "id": 1,
+            "descricao": "Prospect",
+            "disabled": false
+        },{
+            "id": 2,
+            "descricao": "Cliente",
+            "disabled": false
+        },{
+            "id": 3,
+            "descricao": "Segurado",
+            "disabled": false
+        },{
+            "id": 4,
+            "descricao": "Terceiro",
+            "disabled": false
+        },{
+            "id": 5,
+            "descricao": "Titular",
+            "selected": true,
+            "disabled": false
+        },{
+            "id": 6,
+            "descricao": "Dependente",
+            "selected": true,
+            "disabled": false
+        }
+    ]
+}
