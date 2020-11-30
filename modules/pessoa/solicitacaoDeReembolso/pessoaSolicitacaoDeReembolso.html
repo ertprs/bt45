@@ -1,0 +1,196 @@
+<!--
+  <div class="nav-item nav-scroll-item">
+    <a class="nav-link" href="#lnkEspecSolicitacoesReembolso">Espec - Solicitações de reembolso</a>
+  </div>
+-->
+<form id="frmSolicitacaoDeReembolso" method="POST" action="return false">
+  <a id="lnkEspecSolicitacoesReembolso"></a>
+  <div class="row">
+    <div class="col-lg-12 col-xl-12 mt-3">
+      <div class="card mg-b-10">
+        <div class="card-header d-flex align-items-center justify-content-between">
+          <h5 class="mg-b-0">Espec - Solicitação de Reembolso</h5>
+          <a id="btnEspecSolicitacaoDeReembolso" href="#" class="ml-3" data-toggle="tooltip" data-placement="bottom"
+            title="Rest. Tamanho">
+            <i class="fas fa-window-restore"></i>
+          </a>
+        </div>
+        <!-- /card-header -->
+        <div class="card-body pd-b-0">
+          <div id="frmEspecSolicitacaoDeReembolso" style="display: none;">
+            <div class="row mb-2 no-gutters">
+              <div class="col-lg-7" style="padding-left: 0px !important;">
+                <div class="row no-gutters">
+                  <div class="col-lg-4">
+                    <label>Tipo de Solicitação</label>
+                    <select class="form-control"></select>
+                  </div>
+                  <div class="col-lg-4">
+                    <label>Nº. Sinistro</label>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div class="col-lg-4">
+                    <label>Data</label>
+                    <input type="date" class="form-control" />
+                  </div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col-lg-4">
+                    <label>Solicitado (R$)</label>
+                    <input type="text" class="form-control real" />
+                  </div>
+                  <div class="col-lg-4">
+                    <label>Aprovado (R$)</label>
+                    <input type="text" class="form-control real" />
+                  </div>
+                  <div class="col-lg-4">
+                    <label>Status</label>
+                    <select class="form-control"></select>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label>Motivo</label>
+                <textarea class="form-control" style="height: 101px;" disabled></textarea>
+              </div>
+              <div class="col-auto" style="padding-top: 85px;">
+                <button class="btn btn-light mr-1 btn-icon" style="border-color: #dee2e6;" type="button"
+                  data-toggle="tooltip" data-placement="bottom" title="Novo">
+                  <i class="fas fa-file"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-icon" data-toggle="tooltip" data-placement="bottom"
+                  title="Adicionar Tipo de Solicitação">
+                  <i class="fas fa-file-download"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive scroll1">
+            <div class="row no-gutters">
+              <div class="col-lg-12 col-xl-12">
+                <table class="table table-sm mg-b-0">
+                  <thead>
+                    <tr>
+                      <th class="wd-10p text-left">Tipo
+                        <a href="#" class="badge badge-light">
+                          <i class="fas fa-sort-down"></i>
+                        </a>
+                      </th>
+                      <th class="wd-10p text-right">Sinistro
+                        <a href="#" class="badge badge-light">
+                          <i class="fas fa-sort"></i>
+                        </a>
+                      </th>
+                      <th class="wd-10p text-left">Data
+                        <a href="#" class="badge badge-light">
+                          <i class="fas fa-sort"></i>
+                        </a>
+                      </th>
+                      <th class="wd-10p text-left">Solicitado (R$)
+                        <a href="#" class="badge badge-light">
+                          <i class="fas fa-sort"></i>
+                        </a>
+                      </th>
+                      <th class="wd-10p text-left">Aprovado (R$)
+                        <a href="#" class="badge badge-light">
+                          <i class="fas fa-sort"></i>
+                        </a>
+                      </th>
+                      <th class="wd-10p text-left">Status
+                        <a href="#" class="badge badge-light">
+                          <i class="fas fa-sort"></i>
+                        </a>
+                      </th>
+                      <th class="wd-30p text-left">Motivo
+                        <a href="#" class="badge badge-light">
+                          <i class="fas fa-sort"></i>
+                        </a>
+                      </th>
+                      <th class="wd-10p">&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Solicitação</td>
+                      <td class="text-right">123456789</td>
+                      <td class="text-left">10/01/2020</td>
+                      <td class="text-left">R$ 400,00</td>
+                      <td class="text-left">R$ 0,00</td>
+                      <td class="text-left">Reprovada</td>
+                      <td class="text-left">
+                        <div class="truncate200"
+                          title="Solicitação, Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic">
+                          Solicitação, Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
+                          laying out print, graphic
+                        </div>
+                      </td>
+                      <td class="text-right">
+                        <a href="#" class="ml-1 mr-3">
+                          <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="#" class="mr-1">
+                          <i class="fas fa-trash-alt"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Solicitação</td>
+                      <td class="text-right">123456789</td>
+                      <td class="text-left">10/01/2020</td>
+                      <td class="text-left">R$ 400,00</td>
+                      <td class="text-left">R$ 350,00</td>
+                      <td class="text-left">Aprovada</td>
+                      <td class="text-left"></td>
+                      <td class="text-right">
+                        <a href="#" class="ml-1 mr-3">
+                          <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="#" class="mr-1">
+                          <i class="fas fa-trash-alt"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Solicitação</td>
+                      <td class="text-right">123456789</td>
+                      <td class="text-left">10/01/2020</td>
+                      <td class="text-left">R$ 400,00</td>
+                      <td class="text-left">R$ 350,00</td>
+                      <td class="text-left">Aprovada</td>
+                      <td class="text-left"></td>
+                      <td class="text-right">
+                        <a href="#" class="ml-1 mr-3">
+                          <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="#" class="mr-1">
+                          <i class="fas fa-trash-alt"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <nav aria-label="Page navigation">
+                  <ul class="pagination pagination-sm">
+                    <li class="page-item active" aria-current="page">
+                      <span class="page-link">
+                        1
+                        <span class="sr-only">(current)</span>
+                      </span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- table-responsive -->
+            </div>
+            <!-- col-lg-12 -->
+          </div>
+        </div>
+        <!-- card-body -->
+      </div>
+      <!-- card -->
+    </div>
+  </div>
+</form>

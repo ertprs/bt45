@@ -1,7 +1,4 @@
-export class PessoaEntity {
-
-    constructor(_pessoa) {
-        this.pessoa = {
+/*
             "id": 0,
             "codigoCorporativo": "1111111",
             "naoContactar": ["SMS", "EMAIL"],
@@ -45,6 +42,33 @@ export class PessoaEntity {
                     "uf": "RJ"
                 }
             ],
+            "solicitacaoDereembolso": []
+*/
+export class PessoaEntity {
+
+    constructor(_pessoa) {
+        this.pessoa = {
+            "id": "",
+            "codigoCorporativo": "",
+            "naoContactar": [],
+            "tratamento": "",
+            "nomeRazaoSocial": "",
+            "pessoaFisicaJuridica": "",
+            "tipoDePublico": "",
+            "genero": "",
+            "estadoCivil": "",
+            "telefoneResidencial": "",
+            "telefoneComercial": "",
+            "telefoneCelular": "",
+            "emailPrincipal": "",
+            "emailAlternativo": "",
+            "rgIe": "",
+            "cpfCnpf": "",
+            "passaporte": "",
+            "dataDeNascimento": "",
+            "profissao": "",
+            "cargo": "",
+            "endereco": [],
             "solicitacaoDereembolso": []
         };
         this.init(_pessoa);

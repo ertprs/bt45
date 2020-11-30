@@ -47,7 +47,7 @@ class App {
       element.addEventListener('click', (event) => {
         let options = {
           size: 'Xl',
-          app: '/modules/pessoa/pessoaIdentificacao.html',
+          app: '/modules/pessoa/identificacao/pessoaIdentificacao.html',
           title: 'Identificação'
         };
         this.getModal(options);
@@ -120,15 +120,6 @@ class App {
 
     });
 
-    document.querySelector('#btnEspecSolicitacaoDeReembolso').addEventListener('click', (event) => {
-
-      if (document.querySelector('#btnEspecSolicitacaoDeReembolso i').classList.contains('fa-window-restore')) {
-        this.minimizarTabsInferiores('#btnEspecSolicitacaoDeReembolso', '#frmEspecSolicitacaoDeReembolso', false);
-      } else {
-        this.minimizarTabsInferiores('#btnEspecSolicitacaoDeReembolso', '#frmEspecSolicitacaoDeReembolso', true);
-      }
-    }, false);
-
     document.querySelector('#btnEnderecos').addEventListener('click', (event) => {
 
       if (document.querySelector('#btnEnderecos i').classList.contains('fa-window-restore')) {
@@ -158,6 +149,15 @@ class App {
         combo += `<option value="${item[options.value]}">${item[options.text]}</option>`      
     });
     document.querySelector(options.obj).insertAdjacentHTML('afterbegin', combo);
+  }
+
+  getPessoa(codigoPessoa, espec){
+
+    switch(espec){
+      case "AUTO":
+        this.PessoaModule.carregaEspecAuto(codigoPessoa);
+        break;
+    }
   }
 
   findPessoa() {

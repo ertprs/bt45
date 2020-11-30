@@ -1,5 +1,5 @@
-import { ToWayDataBinder } from '../../helper/ToWayDataBinder.js'
-import { PessoaEnderecoEntity } from './PessoaEnderecoEntity.js'
+import { ToWayDataBinder } from '../../helper/ToWayDataBinder.js';
+import { PessoaEnderecoEntity } from './PessoaEnderecoEntity.js';
 import { HttpFetchHelper } from '../../helper/HttpFetchHelper.js';
 
 export class PessoaEnderecoModule {

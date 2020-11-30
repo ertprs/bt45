@@ -1,6 +1,8 @@
 import { PessoaEntity } from './PessoaEntity.js';
 import { ToWayDataBinder } from '../helper/ToWayDataBinder.js'
 import { PessoaEnderecoModule } from './endereco/PessoaEnderecoModule.js';
+import { HttpFetchHelper } from '../helper/HttpFetchHelper.js';
+import f from '../helper/StringToDOMHelper.js';
 
 export class PessoaModule {
 
@@ -8,8 +10,7 @@ export class PessoaModule {
 
     this.App = App;
     this.PessoaEntity = new PessoaEntity({});
-    this.PessoaEnderecoModule = new PessoaEnderecoModule(this);
-
+    
     this.init();
     this.events();
   }
@@ -36,9 +37,7 @@ export class PessoaModule {
     await this.App.carregarCombo({
       obj: "#frmPessoaEstadoCivil",
       url: '/data/estadoCivil/0.json'
-    });
-
-    new ToWayDataBinder('frmPessoa', this.PessoaEntity); 
+    }); 
   }
 
   events() {
@@ -46,6 +45,73 @@ export class PessoaModule {
     document.querySelector('#btnGravarPessoa').addEventListener('click', (event) => {
       this.gravarPessoa(event);
     }, false);
+  }
+
+  async carregaEspecAuto(codigoPessoa){
+
+    let espec = await new HttpFetchHelper().getTemplate('/modules/pessoa/solicitacaoDeReembolso/pessoaSolicitacaoDeReembolso.html');
+    document.querySelector('#wrapperPessoa').appendChild( f`${espec}` );
+
+    this.PessoaEntity = new PessoaEntity({
+      "id": 0,
+      "codigoCorporativo": "1111111",
+      "naoContactar": ["SMS", "EMAIL"],
+      "tratamento": "v.",
+      "nomeRazaoSocial": "bbbbbbbbbbbbb",
+      "pessoaFisicaJuridica": "J",
+      "tipoDePublico": 6,
+      "genero": "N/A",
+      "estadoCivil": "CASADO",
+      "telefoneResidencial": "(21) 95555-5555",
+      "telefoneComercial": "(11) 98888-8888",
+      "telefoneCelular": "(19) 93333-3333",
+      "emailPrincipal": "eee@eee.com",
+      "emailAlternativo": "fff@fff.com",
+      "rgIe": "010101010101010",
+      "cpfCnpf": "020202020",
+      "passaporte": "0303030303030",
+      "dataDeNascimento": "1973-05-19",
+      "profissao": "mmmmmmmmmmm",
+      "cargo": "nnnnnnnnnnnnn",
+      "endereco": [
+          {
+              "bairro": "Tijuca",
+              "cep": "20520-060",
+              "complemento": "apto 401",
+              "localidade": "Rio de Janeiro",
+              "logradouro": "Rua Moura Brito",
+              "numero": "189",
+              "principal": "N",
+              "tipoEndereco": "",
+              "uf": "RJ"
+          }, {
+              "bairro": "Tijuca",
+              "cep": "20520-050",
+              "complemento": "até 0223 - lado ímpar",
+              "localidade": "Rio de Janeiro",
+              "logradouro": "Rua Conde de Bonfim",
+              "numero": "1",
+              "principal": "N",
+              "tipoEndereco": "",
+              "uf": "RJ"
+          }
+      ],
+      "solicitacaoDereembolso": []
+    });
+    new ToWayDataBinder('frmPessoa', this.PessoaEntity);
+    this.PessoaEnderecoModule = new PessoaEnderecoModule(this);
+
+    if(document.querySelector('#btnEspecSolicitacaoDeReembolso')){
+      document.querySelector('#btnEspecSolicitacaoDeReembolso').addEventListener('click', (event) => {
+
+        if (document.querySelector('#btnEspecSolicitacaoDeReembolso i').classList.contains('fa-window-restore')) {
+          this.App.minimizarTabsInferiores('#btnEspecSolicitacaoDeReembolso', '#frmEspecSolicitacaoDeReembolso', false);
+        } else {
+          this.App.minimizarTabsInferiores('#btnEspecSolicitacaoDeReembolso', '#frmEspecSolicitacaoDeReembolso', true);
+        }
+      }, false);
+    }
+
   }
 
   gravarPessoa(event){  

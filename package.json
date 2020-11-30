@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "crypto-js": "^4.0.0",
+        "facon": "^2.0.3",
         "jsonpath-plus": "^4.0.0"
     },
     "optionalDependencies": {}
