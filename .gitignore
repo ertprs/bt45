@@ -2,6 +2,7 @@ node_modules
 samples
 package-lock.json
 dev_app.log
+debug.log
 app/.mvn
 app/.settings
 app/.vscode
