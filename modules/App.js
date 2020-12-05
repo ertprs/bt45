@@ -157,6 +157,15 @@ class App {
       case "AUTO":
         this.PessoaModule.carregaEspecAuto(codigoPessoa);
         break;
+      case "SAUDE":
+        this.PessoaModule.carregaEspecSaude(codigoPessoa);
+        break;
+      case "RESIDENCIAL":
+        this.PessoaModule.carregaEspecResidencial(codigoPessoa);
+        break;
+      case "PADRAO":
+        this.PessoaModule.carregaAtendPadrao(codigoPessoa);
+        break;
     }
   }
 

@@ -47,10 +47,48 @@ export class PessoaModule {
     }, false);
   }
 
-  async carregaEspecAuto(codigoPessoa){
+  carregaEspecAuto(codigoPessoa){
 
-    let espec = await new HttpFetchHelper().getTemplate('/modules/pessoa/solicitacaoDeReembolso/pessoaSolicitacaoDeReembolso.html');
-    document.querySelector('#wrapperPessoa').appendChild( f`${espec}` );
+    this.mockCarregarPessoa();
+  }
+
+  async carregaEspecSaude(codigoPessoa){ 
+
+    //--> REEMBOLSO, CARREGA TELA
+    let especSolReenb = await new HttpFetchHelper().getTemplate('/modules/pessoa/solicitacaoDeReembolso/pessoaSolicitacaoDeReembolso.html');
+    document.querySelector('#wrapperPessoa').appendChild( f`${especSolReenb}` );
+
+    let linkSolReenb = `<div class="nav-item nav-scroll-item">
+      <a class="nav-link" href="#lnkEspecSolicitacoesReembolso">Solicitação de Reembolso</a>
+    </div>`;
+    document.querySelector('#pessoalNavbarScroll').appendChild( f`${linkSolReenb}` );
+
+    //--> REEMBOLSO, CARREGA EVENTOS DA TELA
+    if(document.querySelector('#btnEspecSolicitacaoDeReembolso')){
+      document.querySelector('#btnEspecSolicitacaoDeReembolso').addEventListener('click', (event) => {
+
+        if (document.querySelector('#btnEspecSolicitacaoDeReembolso i').classList.contains('fa-window-restore')) {
+          this.App.minimizarTabsInferiores('#btnEspecSolicitacaoDeReembolso', '#frmEspecSolicitacaoDeReembolso', false);
+        } else {
+          this.App.minimizarTabsInferiores('#btnEspecSolicitacaoDeReembolso', '#frmEspecSolicitacaoDeReembolso', true);
+        }
+      }, false);
+    }
+
+    this.mockCarregarPessoa();
+  }
+
+  carregaEspecResidencial(codigoPessoa){ 
+
+    this.mockCarregarPessoa();
+  }
+
+  carregaAtendPadrao(codigoPessoa){ 
+    
+    this.mockCarregarPessoa();
+  }
+
+  mockCarregarPessoa(){
 
     this.PessoaEntity = new PessoaEntity({
       "id": 0,
@@ -101,16 +139,7 @@ export class PessoaModule {
     new ToWayDataBinder('frmPessoa', this.PessoaEntity);
     this.PessoaEnderecoModule = new PessoaEnderecoModule(this);
 
-    if(document.querySelector('#btnEspecSolicitacaoDeReembolso')){
-      document.querySelector('#btnEspecSolicitacaoDeReembolso').addEventListener('click', (event) => {
-
-        if (document.querySelector('#btnEspecSolicitacaoDeReembolso i').classList.contains('fa-window-restore')) {
-          this.App.minimizarTabsInferiores('#btnEspecSolicitacaoDeReembolso', '#frmEspecSolicitacaoDeReembolso', false);
-        } else {
-          this.App.minimizarTabsInferiores('#btnEspecSolicitacaoDeReembolso', '#frmEspecSolicitacaoDeReembolso', true);
-        }
-      }, false);
-    }
+    
 
   }
 
