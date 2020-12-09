@@ -31,9 +31,4 @@ export class HttpFetchHelper {
     });
     return await response.text();
   }
-
-  getRandom(){
-
-  }
-
 }

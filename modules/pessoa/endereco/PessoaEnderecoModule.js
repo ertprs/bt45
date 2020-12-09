@@ -1,23 +1,21 @@
 import { ToWayDataBinder } from '../../helper/ToWayDataBinder.js';
 import { PessoaEnderecoEntity } from './PessoaEnderecoEntity.js';
-import { HttpFetchHelper } from '../../helper/HttpFetchHelper.js';
 
 export class PessoaEnderecoModule {
 
     constructor(App) {
 
-        this.App = App;
+        this.app = App;
         this.headers = {
             "Content-Type": "application/json"
         }
-        this.HttpFetchHelper = new HttpFetchHelper();
         this.PessoaEnderecoEntity = new PessoaEnderecoEntity({});
         this.init();
         this.events();
     }
 
     init(){
-        new ToWayDataBinder('tblEndereco', this.App.PessoaEntity, this);
+        new ToWayDataBinder('tblEndereco', this.app.PessoaEntity, this);
     }
 
     events() {
@@ -39,31 +37,31 @@ export class PessoaEnderecoModule {
 
         let pos = this.getPositionInArray(this.PessoaEnderecoEntity.endereco.cep);
         if(pos != null){
-            Object.assign(this.App.PessoaEntity.pessoa.endereco[pos], this.PessoaEnderecoEntity.endereco);
+            Object.assign(this.app.PessoaEntity.pessoa.endereco[pos], this.PessoaEnderecoEntity.endereco);
         }else{
-            this.App.PessoaEntity.pessoa.endereco.push(this.PessoaEnderecoEntity.endereco);
+            this.app.PessoaEntity.pessoa.endereco.push(this.PessoaEnderecoEntity.endereco);
         }
        
         //--> IMPLEMENTAR Proxy em ToWayDataBinder
         //--> Para não precisar sobrescrever todo comportamento a cada Insert, Updade ou Delete.
-        new ToWayDataBinder('tblEndereco', this.App.PessoaEntity, this);
+        new ToWayDataBinder('tblEndereco', this.app.PessoaEntity, this);
         this.clean();
     }
 
     edit(cep){
         let pos = this.getPositionInArray(cep);
         if(pos != null){
-            Object.assign(this.PessoaEnderecoEntity.endereco, this.App.PessoaEntity.pessoa.endereco[pos]);
+            Object.assign(this.PessoaEnderecoEntity.endereco, this.app.PessoaEntity.pessoa.endereco[pos]);
             new ToWayDataBinder('frmPessoaEndereco', this.PessoaEnderecoEntity.endereco);
         }
     }
 
     delete(cep){
         let pos = this.getPositionInArray(cep);
-        this.App.PessoaEntity.pessoa.endereco .splice(pos);
+        this.app.PessoaEntity.pessoa.endereco .splice(pos);
         //--> IMPLEMENTAR Proxy em ToWayDataBinder
         //--> Para não precisar sobrescrever todo comportamento a cada Insert, Updade ou Delete.
-        new ToWayDataBinder('tblEndereco', this.App.PessoaEntity, this);
+        new ToWayDataBinder('tblEndereco', this.app.PessoaEntity, this);
     }
 
     clean(){
@@ -72,7 +70,7 @@ export class PessoaEnderecoModule {
 
     getPositionInArray(cep){
         let pos = null;
-        this.App.PessoaEntity.pessoa.endereco.forEach((endereco, index) => {
+        this.app.PessoaEntity.pessoa.endereco.forEach((endereco, index) => {
             if(endereco.cep === cep){
                 pos = index;
             }
@@ -97,7 +95,7 @@ export class PessoaEnderecoModule {
             return false;
         }
 
-        let retorno = await this.HttpFetchHelper.getData(`https://viacep.com.br/ws/${cep}/json/`);            
+        let retorno = await this.app.App.HttpFetchHelper.getData(`https://viacep.com.br/ws/${cep}/json/`);            
         this.PessoaEnderecoEntity = new PessoaEnderecoEntity(retorno);
         new ToWayDataBinder('frmPessoaEndereco', this.PessoaEnderecoEntity.endereco);
     }

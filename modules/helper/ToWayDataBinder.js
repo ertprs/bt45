@@ -1,12 +1,12 @@
 export class ToWayDataBinder {
 
-   constructor(frm, data, module) {
+   constructor(frm, data, module, debug) {
       this.frm = frm;      
       this.data = data;
       this.module = module;
       this.inputTypes = ["text", "email", "number", "textearea", "date", "password", "select-one"];
       this.checkTypes = ["checkbox", "radio"];
-      this.debugger = true;
+      this.debugger = debug || false;
       this.init();
     }
 
@@ -71,19 +71,21 @@ export class ToWayDataBinder {
             tag = tag.filter(e => e !== node.value);
          }
       }
-      console.log(this.data);
+      //console.log(this.data);
    }
 
    setTableBind(node) {
       
       let bind = 'table-bind';
       let data = this.getData(node, bind);
+      
+      if(!data) return false;
+      
       let tbody = document.querySelector(`#${node.getAttribute('id')} tbody`);
       let datakey = document.querySelector(`#${node.getAttribute('id')} thead tr`).getAttribute('data-key');
       let ths = document.querySelectorAll(`#${node.getAttribute('id')} th`);
       let icons = '';
 
-      if(!data) return false;
 
       tbody.querySelectorAll('*').forEach(n => n.remove());      
       data.forEach(item => {

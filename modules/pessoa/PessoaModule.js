@@ -138,9 +138,6 @@ export class PessoaModule {
     });
     new ToWayDataBinder('frmPessoa', this.PessoaEntity);
     this.PessoaEnderecoModule = new PessoaEnderecoModule(this);
-
-    
-
   }
 
   gravarPessoa(event){  
@@ -212,23 +209,5 @@ export class PessoaModule {
       }
     }
     return true;
-  }
-
-  encrypt(word) {
-
-    if (!word) return '';
-
-    let key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
-    let srcs = CryptoJS.enc.Utf8.parse(word);
-    let encrypted = CryptoJS.AES.encrypt(srcs, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 });
-    return encrypted.toString();
-  }
-
-
-  decrypt(word) {
-
-    let key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
-    let decrypt = CryptoJS.AES.decrypt(word, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 });
-    return CryptoJS.enc.Utf8.stringify(decrypt).toString();
   }
 }

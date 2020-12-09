@@ -5,6 +5,7 @@ import { BrowserDetect } from '../assets/browser-detect/BrowserDetect.js';
 
 import { HttpFetchHelper } from './helper/HttpFetchHelper.js'
 
+import { PessoaIdentificacaoModule } from './pessoa/identificacao/PessoaidentificacaoModule.js';
 import { FuncionarioEntity } from './cadastro/funcionario/FuncionarioEntity.js';
 import { PessoaModule } from './pessoa/PessoaModule.js';
 import { PessoaTipoDePublicoModule } from './cadastro/tipoDePublico/PessoaTipoDePublicoModule.js';
@@ -17,6 +18,7 @@ class App {
     this.FuncionarioEntity = new FuncionarioEntity({"id": 0, "codigoEquipe": 2});
     this.PessoaModule = new PessoaModule(this);  
     this.PessoaTipoDePublicoModule = null;
+    this.PessoaIdentificacaoModule = null;
         
     this.init();
     this.events();
@@ -42,18 +44,19 @@ class App {
   }
 
   events() {
-    
+
     document.querySelectorAll('#btnIdentificacao').forEach(element => {
       element.addEventListener('click', (event) => {
         let options = {
           size: 'Xl',
           app: '/modules/pessoa/identificacao/pessoaIdentificacao.html',
-          title: 'Identificação'
+          title: 'Identificação',
+          callBack: this.setPessoaIdentificacaoModule
         };
         this.getModal(options);
       }, false);
     });
-
+    
     document.querySelectorAll('#btnCancelarAtendimento').forEach(element => {
 
       element.addEventListener('click', (event) => {
@@ -130,6 +133,10 @@ class App {
     }, false);
   }
 
+  setPessoaIdentificacaoModule(){
+    this.PessoaIdentificacaoModule = new PessoaIdentificacaoModule(appModule);
+  }
+
   carregaCadastroTipoDePublico(){
     this.PessoaTipoDePublicoModule = new PessoaTipoDePublicoModule(appModule);
   }
@@ -170,7 +177,7 @@ class App {
   }
 
   findPessoa() {
-    this.ModulePessoa.findPessoa();
+    //this.ModulePessoa.findPessoa();
   }
 
   closeCanvasLeftMenu() {
@@ -327,6 +334,33 @@ class App {
 
   capitalize([first, ...rest], locale = navigator.language) {
     return [first.toLocaleUpperCase(locale), ...rest].join('');
+  }
+
+  isEmpty(obj) {
+    for (let prop in obj) {
+      if (obj[prop]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  encrypt(word) {
+
+    if (!word) return '';
+
+    let key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
+    let srcs = CryptoJS.enc.Utf8.parse(word);
+    let encrypted = CryptoJS.AES.encrypt(srcs, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 });
+    return encrypted.toString();
+  }
+
+
+  decrypt(word) {
+
+    let key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
+    let decrypt = CryptoJS.AES.decrypt(word, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 });
+    return CryptoJS.enc.Utf8.stringify(decrypt).toString();
   }
 }
 
