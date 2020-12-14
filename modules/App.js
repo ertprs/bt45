@@ -2,12 +2,15 @@ import * as FilePond from '../assets/filepond/dist/filepond.esm.js';
 import FilePondPluginFileValidateSize from '../assets/filepond/dist/plugins/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.esm.js';
 import FilePondPluginImagePreview from '../assets/filepond/dist/plugins/filepond-plugin-image-preview/filepond-plugin-image-preview.esm.js';
 import { BrowserDetect } from '../assets/browser-detect/BrowserDetect.js';
+import f from './helper/StringToDOMHelper.js';
 
 import { HttpFetchHelper } from './helper/HttpFetchHelper.js'
+import { ToWayDataBinder } from './helper/ToWayDataBinder.js'
 
-import { PessoaIdentificacaoModule } from './pessoa/identificacao/PessoaidentificacaoModule.js';
+import { PessoaEntity } from './pessoa/PessoaEntity.js';
+import { PessoaEnderecoEntity } from './pessoa/endereco/PessoaEnderecoEntity.js';
+
 import { FuncionarioEntity } from './cadastro/funcionario/FuncionarioEntity.js';
-import { PessoaModule } from './pessoa/PessoaModule.js';
 import { PessoaTipoDePublicoModule } from './cadastro/tipoDePublico/PessoaTipoDePublicoModule.js';
 
 class App {
@@ -15,16 +18,29 @@ class App {
   constructor() {
 
     this.HttpFetchHelper = new HttpFetchHelper();
-    this.FuncionarioEntity = new FuncionarioEntity({"id": 0, "codigoEquipe": 2});
-    this.PessoaModule = new PessoaModule(this);  
+    this.FuncionarioEntity = new FuncionarioEntity({"id": 0, "codigoEquipe": 1});
+    this.PessoaEnderecoEntity = new PessoaEnderecoEntity({}); 
     this.PessoaTipoDePublicoModule = null;
     this.PessoaIdentificacaoModule = null;
+    
+    this.frmIdentidicacao = {
+      nomeRazaoSocial: "",
+      email: "",
+      cpfCnpj: "",
+      codigoCorporativo: "",
+      protocolo: "",
+      manifestacao: ""
+    }
+    this.data = null;
+    this.headers = {
+      "Content-Type": "application/json"
+    }
         
     this.init();
     this.events();
   }
 
-  init() {
+  async init() {
 
     FilePond.registerPlugin(FilePondPluginFileValidateSize, FilePondPluginImagePreview);
     FilePond.setOptions({
@@ -41,6 +57,28 @@ class App {
     });
 
     $('[data-toggle="tooltip"]').tooltip();
+
+    await this.carregarCombo({
+      obj: "#frmPessoaTipoDePublico",
+      url: `/data/tipoDePublico/combo/${this.FuncionarioEntity.funcionario.codigoEquipe}.json`
+    });
+
+    await this.carregarCombo({
+      obj: "#frmPessoaEstado",
+      url: '/data/estado/0.json',
+      value: 'sigla',
+      text: 'nome'
+    });
+
+    await this.carregarCombo({
+      obj: "#frmPessoaTratamento",
+      url: '/data/tratamento/0.json'
+    });
+
+    await this.carregarCombo({
+      obj: "#frmPessoaEstadoCivil",
+      url: '/data/estadoCivil/0.json'
+    });
   }
 
   events() {
@@ -131,10 +169,48 @@ class App {
         this.minimizarTabsInferiores('#btnEnderecos', '#frmEndereco', true);
       }
     }, false);
+
+    document.querySelector('#btnGravarPessoa').addEventListener('click', (event) => {
+      this.gravarPessoa(event);
+    }, false);
+
+  }
+
+  eventsEnderecos(){
+
+    document.querySelector('#btnCepLogradouro').addEventListener('click', (event) => {
+      this.getCep();
+    });
+
+    document.querySelector('#frmPessoaEnderecoBtnNovo').addEventListener('click', (event) => {
+        this.cleantblEndereco();
+    });
+
+    document.querySelector('#frmPessoaEnderecoBtnAplicar').addEventListener('click', (event) => {
+        this.setEnderecoToPessoa();
+    });
+    
+    document.querySelectorAll(`#tblEndereco tbody i.fas.fa-edit`).forEach(item => {
+        item.addEventListener('click', (event) => {
+          this.edittblEndereco(event.target.closest('tr').getAttribute('data-key'));
+        });
+    });
+    
+    document.querySelectorAll(`#tblEndereco tbody i.fas.fa-trash-alt`).forEach(item => {
+        item.addEventListener('click', (event) => {
+          this.deletetblEndereco(event.target.closest('tr').getAttribute('data-key'));
+        });
+    });
+   
   }
 
   setPessoaIdentificacaoModule(){
-    this.PessoaIdentificacaoModule = new PessoaIdentificacaoModule(appModule);
+
+    new ToWayDataBinder('frmIdentificacao', appModule.frmIdentidicacao);
+    
+    document.querySelector('#btnPesquisaPessoa').addEventListener('click', (event) => {
+      appModule.getListPessoa();
+    }, false);
   }
 
   carregaCadastroTipoDePublico(){
@@ -162,22 +238,18 @@ class App {
 
     switch(espec){
       case "AUTO":
-        this.PessoaModule.carregaEspecAuto(codigoPessoa);
+        this.carregaEspecAuto(codigoPessoa);
         break;
       case "SAUDE":
-        this.PessoaModule.carregaEspecSaude(codigoPessoa);
+        this.carregaEspecSaude(codigoPessoa);
         break;
       case "RESIDENCIAL":
-        this.PessoaModule.carregaEspecResidencial(codigoPessoa);
+        this.carregaEspecResidencial(codigoPessoa);
         break;
       case "PADRAO":
-        this.PessoaModule.carregaAtendPadrao(codigoPessoa);
+        this.carregaAtendPadrao(codigoPessoa);
         break;
     }
-  }
-
-  findPessoa() {
-    //this.ModulePessoa.findPessoa();
   }
 
   closeCanvasLeftMenu() {
@@ -362,6 +434,243 @@ class App {
     let decrypt = CryptoJS.AES.decrypt(word, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 });
     return CryptoJS.enc.Utf8.stringify(decrypt).toString();
   }
+
+  carregaEspecAuto(codigoPessoa){
+
+    this.mockCarregarPessoa(codigoPessoa);
+  }
+
+  async carregaEspecSaude(codigoPessoa){ 
+
+    //--> REEMBOLSO, CARREGA TELA
+    let especSolReenb = await new HttpFetchHelper().getTemplate('/modules/pessoa/solicitacaoDeReembolso/pessoaSolicitacaoDeReembolso.html');
+    document.querySelector('#wrapperPessoa').appendChild( f`${especSolReenb}` );
+
+    let linkSolReenb = `<div class="nav-item nav-scroll-item">
+      <a class="nav-link" href="#lnkEspecSolicitacoesReembolso">Solicitação de Reembolso</a>
+    </div>`;
+    document.querySelector('#pessoalNavbarScroll').appendChild( f`${linkSolReenb}` );
+
+    //--> REEMBOLSO, CARREGA EVENTOS DA TELA
+    if(document.querySelector('#btnEspecSolicitacaoDeReembolso')){
+      document.querySelector('#btnEspecSolicitacaoDeReembolso').addEventListener('click', (event) => {
+
+        if (document.querySelector('#btnEspecSolicitacaoDeReembolso i').classList.contains('fa-window-restore')) {
+          this.minimizarTabsInferiores('#btnEspecSolicitacaoDeReembolso', '#frmEspecSolicitacaoDeReembolso', false);
+        } else {
+          this.minimizarTabsInferiores('#btnEspecSolicitacaoDeReembolso', '#frmEspecSolicitacaoDeReembolso', true);
+        }
+      }, false);
+    }
+
+    this.mockCarregarPessoa(codigoPessoa);
+  }
+
+  carregaEspecResidencial(codigoPessoa){ 
+
+    this.mockCarregarPessoa(codigoPessoa);
+  }
+
+  carregaAtendPadrao(codigoPessoa){ 
+    
+    this.mockCarregarPessoa(codigoPessoa);
+  }
+
+  mockCarregarPessoa(codigoPessoa){
+
+    this.data.content.forEach(element => {
+      if(element.codigoCorporativo==codigoPessoa){
+        this.PessoaEntity = new PessoaEntity(element);
+      }
+    });
+
+    new ToWayDataBinder('frmPessoa', this.PessoaEntity);
+    new ToWayDataBinder('tblEndereco', this.PessoaEntity, this);
+    this.eventsEnderecos();
+  }
+
+  gravarPessoa(event){  
+
+    if(!this.isPessoaValida()) return false;
+  }
+
+  isPessoaValida(){
+    return true;
+  }
+
+  async findPessoa() {
+
+    let identificacao = {
+      nomeRazaoSocial: document.querySelector('#frmIdentificacaoNomeRazaoSocial').value,
+      email: document.querySelector('#frmIdentificacaoEmail').value,
+      cpfCnpj: this.encrypt(document.querySelector('#frmIdentificacaoCpfCnpj').value),
+      codigoCorporativo: document.querySelector('#frmIdentificacaoCodigoCorporativo').value,
+      protocolo: document.querySelector('#frmIdentificacaoProtocolo').value,
+      manifestacao: document.querySelector('#frmIdentificacaoManifestacao').value
+    };
+
+    let isEmpty = this.isEmpty(identificacao);
+
+    if (isEmpty) {
+      $.toast({
+        heading: '<strong>Atenção</strong>',
+        text: 'Pelo menos um parametro deve ser preenchido para identeificação!',
+        position: 'top-right',
+        bgColor: '#ffc107',
+        hideAfter: 5000,
+        textColor: '#343a40'
+      });
+      return false;
+    }
+
+    //SE ENCONTRAR POR NOME E OU EMAIL
+    //EXECURAR:
+    // - findPessoaPorNomeEouEmail()
+    // - CARREGAR LISTA IDENTIFICADOS
+
+    //SE ENCONTRAR POR CÓDIGO MANIFESTAÇÃO,
+    //EXECUTAR: 
+    // - CARREGAR PESSOA;
+    // - CARREGAR MANIFESTAÇÃO;
+    // - DESTROI MODAL IDENTIFICAÇÃO.
+    return await this.HttpFetchHelper.postData('/pessoa/search', data);
+
+    //$('#Xl').modal('hide');
+  }
+
+  isEmpty(obj) {
+    for (let prop in obj) {
+      if (obj[prop]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  setEnderecoToPessoa() {
+
+    let pos = this.getPositionInArray(this.PessoaEnderecoEntity.endereco.cep);
+    if(pos != null){
+        Object.assign(this.PessoaEntity.pessoa.enderecos[pos], this.PessoaEnderecoEntity.endereco);
+    }else{
+        this.PessoaEntity.pessoa.enderecos.push(this.PessoaEnderecoEntity.endereco);
+    }
+   
+    //--> IMPLEMENTAR Proxy em ToWayDataBinder
+    //--> Para não precisar sobrescrever todo comportamento a cada Insert, Updade ou Delete.
+    new ToWayDataBinder('tblEndereco', this.PessoaEntity, this);
+    this.cleantblEndereco();
+    this.eventsEnderecos();
+  }
+
+  edittblEndereco(cep){
+      let pos = this.getPositionInArray(cep);
+      if(pos != null){
+          Object.assign(this.PessoaEnderecoEntity.endereco, this.PessoaEntity.pessoa.enderecos[pos]);
+          new ToWayDataBinder('frmPessoaEndereco', this.PessoaEnderecoEntity.endereco);
+      }
+  }
+
+  deletetblEndereco(cep){
+      let pos = this.getPositionInArray(cep);
+      this.PessoaEntity.pessoa.enderecos.splice(pos);
+      //--> IMPLEMENTAR Proxy em ToWayDataBinder
+      //--> Para não precisar sobrescrever todo comportamento a cada Insert, Updade ou Delete.
+      new ToWayDataBinder('tblEndereco', this.PessoaEntity, this);
+  }
+
+  cleantblEndereco(){
+      document.querySelector('#frmPessoaEndereco').reset();
+  }
+
+  getPositionInArray(cep){
+      let pos = null;
+      this.PessoaEntity.pessoa.enderecos.forEach((endereco, index) => {
+          if(endereco.cep === cep){
+              pos = index;
+          }
+      });
+      return pos;
+  }
+
+  async getCep() {
+
+      let cep = document.querySelector('#frmPessoaCepLogradouro').value.replace(/\D/g, '');
+      let validacep = /^[0-9]{8}$/;
+
+      if (!validacep.test(cep)){
+          $.toast({
+              heading: '<strong>Atenção</strong>',
+              text: 'Cep inválido!',
+              position: 'top-right',
+              bgColor: '#ffc107',
+              hideAfter: 5000,
+              textColor: '#343a40'
+            });
+          return false;
+      }
+
+      let retorno = await this.HttpFetchHelper.getData(`https://viacep.com.br/ws/${cep}/json/`);            
+      this.PessoaEnderecoEntity = new PessoaEnderecoEntity(retorno);
+      new ToWayDataBinder('frmPessoaEndereco', this.PessoaEnderecoEntity.endereco);
+  }
+
+  async getListPessoa(){
+
+    if (this.isEmpty(this.frmIdentidicacao)){
+        $.toast({
+            heading: '<strong>Atenção</strong>',
+            text: 'Pelo menos um campo do formulário deve ser preenchido!',
+            position: 'top-right',
+            bgColor: '#ffc107',
+            hideAfter: 5000,
+            textColor: '#343a40'
+          });
+        return false;
+    }
+
+    
+    if(this.frmIdentidicacao.nomeRazaoSocial){
+        this.frmIdentidicacao.nomeRazaoSocial =  this.encrypt(this.frmIdentidicacao.nomeRazaoSocial);
+    }
+    
+    if(this.frmIdentidicacao.cpfCnpj){
+        this.frmIdentidicacao.cpfCnpj =  this.encrypt(this.frmIdentidicacao.cpfCnpj);
+    }
+    
+    this.data = await this.HttpFetchHelper.postData('/pessoa/search', this.frmIdentidicacao);
+    new ToWayDataBinder('tblIdentificacao', this.data, this);
+    
+    console.log( this.data );
+    
+    //$('#Xl').modal('hide');
+    //return data;
+  }
+
+  callbackIconsIdentificacao(data){
+      //console.log(data);
+      let icons = '';
+      if(data.spec.includes('AUTO')){
+          icons += `<a href="#" class="ml-3 mr-3" onclick="appModule.getPessoa(${data.codigoCorporativo}, 'AUTO')" data-toggle="tooltip" data-placement="bottom" data-dismiss="modal" title="Seguro Auto">
+                      <i class="fas fa-car-crash"></i>
+                  </a>`
+      }
+      if(data.spec.includes('SAUDE')){
+          icons += `<a href="#" class="ml-3 mr-3" onclick="appModule.getPessoa(${data.codigoCorporativo}, 'SAUDE')" data-toggle="tooltip" data-placement="bottom" data-dismiss="modal" title="Seguro Saúde">
+                      <i class="fas fa-heartbeat"></i>
+                  </a>`
+      }
+      if(data.spec.includes('RESIDENCIAL')){
+          icons += `<a href="#" class="ml-3 mr-3" onclick="appModule.getPessoa(${data.codigoCorporativo}, 'RESIDENCIAL')" data-toggle="tooltip" data-placement="bottom" data-dismiss="modal" title="Seguro Residerncial">
+                      <i class="fas fa-house-damage"></i>
+                  </a>`
+      }
+      icons += `<a href="#" class="ml-3 mr-3" onclick="appModule.getPessoa(${data.codigoCorporativo}, 'PADRAO')" data-toggle="tooltip" data-placement="bottom" data-dismiss="modal" title="Atendimento Padrão">
+          <i class="fas fa-bullhorn"></i>
+      </a>`
+      return f`${icons}`;
+  }
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {

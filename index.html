@@ -305,8 +305,8 @@
                       <div id="dadosPessoais">
                         <div class="row no-gutters">
                           <div class="col-lg-3">
-                            <label for="frmPessoaTipoDePlublico">Tipo de público</label>
-                            <select id="frmPessoaTipoDePlublico" data-bind="pessoa.tipoDePublico" class="form-control"></select>
+                            <label for="frmPessoaTipoDePublico">Tipo de público</label>
+                            <select id="frmPessoaTipoDePublico" data-bind="pessoa.tipoDePublico" class="form-control"></select>
                           </div>
                           <div class="col-lg-3">
                             <label for="frmPessoaTratamento">Tratamento</label>
@@ -417,7 +417,7 @@
                           </div>
                           <div class="col-lg-4">
                             <label for="frmPessoaCpfCnpf">CPF/CNPJ</label>
-                            <input id="frmPessoaCpfCnpf" data-bind="pessoa.cpfCnpf" type="text" class="form-control" />
+                            <input id="frmPessoaCpfCnpf" data-bind="pessoa.cpfCnpj" type="text" class="form-control" />
                           </div>
                           <div class="col-lg-4">
                             <label for="frmPessoaPassaporte">Passaporte</label>
@@ -534,7 +534,7 @@
                     <div class="table-responsive scroll1">
                       <div class="row no-gutters">
                         <div class="col-lg-12">
-                          <table id="tblEndereco" table-bind="pessoa.endereco" class="table table-sm bg-white">
+                          <table id="tblEndereco" table-bind="pessoa.enderecos" class="table table-sm bg-white">
                             <thead>
                               <tr data-key="cep">
                                 <th class="wd-10p text-left" td-bind="tipoEndereco">Tipo

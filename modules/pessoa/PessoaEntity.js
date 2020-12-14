@@ -63,12 +63,12 @@ export class PessoaEntity {
             "emailPrincipal": "",
             "emailAlternativo": "",
             "rgIe": "",
-            "cpfCnpf": "",
+            "cpfCnpj": "",
             "passaporte": "",
             "dataDeNascimento": "",
             "profissao": "",
             "cargo": "",
-            "endereco": [],
+            "enderecos": [],
             "solicitacaoDereembolso": []
         };
         this.init(_pessoa);

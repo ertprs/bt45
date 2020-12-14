@@ -21,18 +21,18 @@ export class ToWayDataBinder {
    //SET TAG DATA_BIND
    setDataBind(node){
 
-      if(node.hasAttribute && node.getAttribute('data-bind')){
+      if(node && node.hasAttribute && node.getAttribute('data-bind')){
          this.setValueObjToFrmElement(node);
       }
 
-      if(node.hasAttribute && node.getAttribute('table-bind')){
+      if(node && node.hasAttribute && node.getAttribute('table-bind')){
          this.setTableBind(node);
       }
    }
   
    setValueObjToFrmElement(node) {            
          
-      let tag =  this.getData(node, 'data-bind');
+      let tag =  this.getData(node, node.getAttribute('data-bind'));
 
       if(this.checkTypes.includes(node.type) && tag && tag.includes(node.value)){
          node.checked = true;
@@ -53,8 +53,9 @@ export class ToWayDataBinder {
    }
 
    setFrmElementValueToObj(node){
+
       let bind = 'data-bind';
-      let tag =  this.getData(node, bind);
+      let tag =  this.getData(node, node.getAttribute(bind));
 
       if(!Array.isArray(tag)){
          if(this.checkTypes.includes(node.type) && node.checked==false){
@@ -77,13 +78,14 @@ export class ToWayDataBinder {
    setTableBind(node) {
       
       let bind = 'table-bind';
-      let data = this.getData(node, bind);
+      let data = this.getData(node, node.getAttribute(bind));
       
       if(!data) return false;
       
-      let tbody = document.querySelector(`#${node.getAttribute('id')} tbody`);
-      let datakey = document.querySelector(`#${node.getAttribute('id')} thead tr`).getAttribute('data-key');
-      let ths = document.querySelectorAll(`#${node.getAttribute('id')} th`);
+      let tbl = node.getAttribute('id');
+      let tbody = document.querySelector(`#${tbl} tbody`);
+      let datakey = document.querySelector(`#${tbl} thead tr`).getAttribute('data-key');
+      let ths = document.querySelectorAll(`#${tbl} th`);
       let icons = '';
 
 
@@ -98,9 +100,10 @@ export class ToWayDataBinder {
             
             if(item[th.getAttribute('td-bind')]){
                nodeTd.appendChild( document.createTextNode(item[th.getAttribute('td-bind')]) );
+               nodeTd.setAttribute('class', 'text-left');
             }
             
-            if(th.getAttribute('ico-bind')){
+            if(th.hasAttribute('ico-bind')){
                
                let arr = th.getAttribute('ico-bind').split('.');
                icons = th.getAttribute('ico-bind');
@@ -124,26 +127,43 @@ export class ToWayDataBinder {
                });
             } 
 
+            if(th.hasAttribute('ico-callback-bind')){
+               let bind = th.getAttribute('ico-callback-bind')
+               let spec = {spec: 'AUTO,SAUDE,RESIDENCIAL'}
+               let ico = this.setIconCallBack( bind, Object.assign(item, spec) );
+               if(ico){
+                  nodeTd.appendChild( ico );
+               }
+            }
+
             nodeTr.appendChild(nodeTd);
          });
 
          tbody.appendChild(nodeTr);
       });
 
+      /*
       if(this.module && icons.includes('EDIT')){
-         document.querySelectorAll(`#${node.getAttribute('id')} tbody i.fas.fa-edit`).forEach(item => {
+         document.querySelectorAll(`#${tbl} tbody i.fas.fa-edit`).forEach(item => {
             item.addEventListener('click', (event) => {
-               this.module.edit(event.target.closest('tr').getAttribute('data-key'));
+               eval( "this.module.edit"+tbl+"(event.target.closest('tr').getAttribute('data-key'))" );
             });
          });
       }
       if(this.module && icons.includes('TRASH')){
-         document.querySelectorAll(`#${node.getAttribute('id')} tbody i.fas.fa-trash-alt`).forEach(item => {
+         document.querySelectorAll(`#${tbl} tbody i.fas.fa-trash-alt`).forEach(item => {
             item.addEventListener('click', (event) => {
-               this.module.delete(event.target.closest('tr').getAttribute('data-key'));
+               eval( "this.module.delete"+tbl+"(event.target.closest('tr').getAttribute('data-key'))" );
             });
          });
       }
+      */
+   }
+
+   setIconCallBack(callBack, item){
+
+      let data = item;
+      return eval('this.module.'+callBack+'(data)');
    }
 
    setIcons(icons){
@@ -166,41 +186,43 @@ export class ToWayDataBinder {
 
    getData(node, bind){
 
-      let arr = node.getAttribute(bind).split('.');
+      if(!node) return false;
+
+      let arr = bind.split('.');
       switch(arr.length){
          case 1: 
             try{
                if(this.data[arr[0]]) return this.data[arr[0]];
             }catch(ex){
-               this.setLog(node.getAttribute(bind), ex);
+               this.setLog(bind, ex);
                return null;
             }
          case 2: 
             try{
                if(this.data[arr[0]][arr[1]]) return this.data[arr[0]][arr[1]];
             }catch(ex){
-               this.setLog(node.getAttribute(bind), ex);
+               this.setLog(bind, ex);
                return null;
             }
          case 3: 
             try{
                if(this.data[arr[0]][arr[1]][arr[2]]) return this.data[arr[0]][arr[1]][arr[2]];
             }catch(ex){
-               this.setLog(node.getAttribute(bind), ex);
+               this.setLog(bind, ex);
                return null;
             }
          case 4: 
             try{
                if(this.data[arr[0]][arr[1]][arr[2]][arr[3]]) return this.data[arr[0]][arr[1]][arr[2]][arr[3]];
             }catch(ex){
-               this.setLog(node.getAttribute(bind), ex);
+               this.setLog(bind, ex);
                return null;
             }
          case 5: 
             try{
                if(this.data[arr[0]][arr[1]][arr[2]][arr[3]][arr[4]]) return this.data[arr[0]][arr[1]][arr[2]][arr[3]][arr[4]];
             }catch(ex){
-               this.setLog(node.getAttribute(bind), ex);
+               this.setLog(bind, ex);
                return null;
             }
       }
