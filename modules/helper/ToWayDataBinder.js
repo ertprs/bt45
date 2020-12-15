@@ -1,3 +1,5 @@
+import moment from '../../assets/moment/dist/moment.js';
+
 export class ToWayDataBinder {
 
    constructor(frm, data, module, debug) {
@@ -45,7 +47,12 @@ export class ToWayDataBinder {
       }
 
       if(!Array.isArray(this.data) && tag && this.inputTypes.includes(node.type)){
-         node.value = tag;            
+         if(node.type=='date'){
+            let dta = moment(tag, "DD-MM-YYYY");
+            node.value = dta.format(dta.format('YYYY-MM-DD'));            
+         }else{
+            node.value = tag;
+         }
       }
       
       node.removeEventListener('change', (event) => { this.setFrmElementValueToObj(node) }, false);
@@ -128,8 +135,8 @@ export class ToWayDataBinder {
             } 
 
             if(th.hasAttribute('ico-callback-bind')){
-               let bind = th.getAttribute('ico-callback-bind')
-               let spec = {spec: 'AUTO,SAUDE,RESIDENCIAL'}
+               let bind = th.getAttribute('ico-callback-bind');
+               let spec = {spec: 'AUTO,SAUDE,RESIDENCIAL'};//MOCK::> ISSO DEVE VIR DO DB, CADA PESSOA DEVE SABE QUAIS SÃO SEUS ESPECS
                let ico = this.setIconCallBack( bind, Object.assign(item, spec) );
                if(ico){
                   nodeTd.appendChild( ico );
@@ -162,8 +169,7 @@ export class ToWayDataBinder {
 
    setIconCallBack(callBack, item){
 
-      let data = item;
-      return eval('this.module.'+callBack+'(data)');
+      return eval('this.module.'+callBack+'(item)');
    }
 
    setIcons(icons){

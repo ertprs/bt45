@@ -648,7 +648,7 @@ class App {
   }
 
   callbackIconsIdentificacao(data){
-      //console.log(data);
+
       let icons = '';
       if(data.spec.includes('AUTO')){
           icons += `<a href="#" class="ml-3 mr-3" onclick="appModule.getPessoa(${data.codigoCorporativo}, 'AUTO')" data-toggle="tooltip" data-placement="bottom" data-dismiss="modal" title="Seguro Auto">
